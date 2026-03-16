@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings - Glamour Studio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bookings.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="services.html">
+                <i class="fas fa-spa brand-icon"></i> Glamour Studio
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html#services-section"><i class="fas fa-concierge-bell"></i> Services</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="bookings.html"><i class="fas fa-calendar-check"></i> My Bookings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bookings-hero">
+        <div class="container text-center">
+            <h1><i class="fas fa-calendar-check"></i> My Bookings</h1>
+            <p>View all your past and upcoming appointments</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <div class="container mt-4">
+        <div class="booking-tabs text-center">
+            <button class="booking-tab active" data-filter="all">
+                All <span class="tab-count" id="count-all">0</span>
+            </button>
+            <button class="booking-tab" data-filter="upcoming">
+                <i class="fas fa-clock"></i> Upcoming <span class="tab-count" id="count-upcoming">0</span>
+            </button>
+            <button class="booking-tab" data-filter="completed">
+                <i class="fas fa-check-circle"></i> Completed <span class="tab-count" id="count-completed">0</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bookings List -->
+    <div class="container mt-4 mb-5">
+        <div id="bookings-list">
+            <!-- Dynamically loaded -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="no-bookings" class="empty-state text-center d-none">
+            <div class="empty-icon"><i class="fas fa-calendar-xmark"></i></div>
+            <h4>No bookings yet</h4>
+            <p>You haven't made any appointments. Let's change that!</p>
+            <a href="services.html#services-section" class="btn-browse">
+                Browse Services <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Booking Detail Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content booking-modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-receipt"></i> Booking Details</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-modal-delete" id="btn-delete-booking">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                    <button class="btn-modal-close" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/bookings.js"></script>
+</body>
+</html>

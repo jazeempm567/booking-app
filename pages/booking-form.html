@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Details - Glamour Studio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/booking.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="services.html">
+                <i class="fas fa-spa brand-icon"></i> Glamour Studio
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="services.html"><i class="fas fa-home mr-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html#services"><i class="fas fa-concierge-bell mr-1"></i>Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookings.html"><i class="fas fa-calendar-check mr-1"></i>My Bookings</a></li>
+                    <li class="nav-item ml-lg-2"><a href="staff-selection.html" class="btn btn-outline-light btn-sm" id="btn-back"><i class="fas fa-arrow-left"></i> Back</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Steps -->
+    <div class="progress-bar-wrap">
+        <div class="container">
+            <div class="booking-steps">
+                <div class="step completed"><span class="step-num">1</span><span class="step-label">Service</span></div>
+                <div class="step-line completed"></div>
+                <div class="step completed"><span class="step-num">2</span><span class="step-label">Staff</span></div>
+                <div class="step-line completed"></div>
+                <div class="step active"><span class="step-num">3</span><span class="step-label">Details</span></div>
+                <div class="step-line"></div>
+                <div class="step"><span class="step-num">4</span><span class="step-label">Payment</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-5">
+        <div class="row justify-content-center">
+            <!-- Left: Booking Summary -->
+            <div class="col-lg-4 col-md-5 mb-4">
+                <div class="summary-card">
+                    <h6 class="summary-heading"><i class="fas fa-receipt"></i> Booking Summary</h6>
+                    <div class="summary-row">
+                        <span class="summary-label">Service</span>
+                        <span class="summary-value" id="sum-service">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Specialist</span>
+                        <span class="summary-value" id="sum-staff">—</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row total-row">
+                        <span class="summary-label">Total</span>
+                        <span class="summary-value" id="sum-price">—</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Booking Form -->
+            <div class="col-lg-6 col-md-7">
+                <div class="form-card">
+                    <h4 class="form-heading">Enter Your Details</h4>
+                    <p class="form-subtext">We'll use this info to confirm your booking</p>
+
+                    <form id="bookingForm" novalidate>
+                        <!-- Name -->
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="e.g. Ahmed Al Mansouri" required>
+                            <div class="invalid-feedback">Please enter your full name.</div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="e.g. ahmed@email.com" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+
+                        <!-- Contact Number -->
+                        <div class="form-group">
+                            <label for="contact"><i class="fas fa-phone"></i> Contact Number</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">+971</span>
+                                </div>
+                                <input type="tel" class="form-control" id="contact" placeholder="5X XXX XXXX" maxlength="10" required>
+                            </div>
+                            <div class="invalid-feedback contact-error">Please enter a valid UAE phone number.</div>
+                        </div>
+
+                        <!-- Date Picker -->
+                        <div class="form-group">
+                            <label for="bookingDate"><i class="fas fa-calendar-alt"></i> Preferred Date</label>
+                            <input type="date" class="form-control" id="bookingDate" required>
+                            <div class="invalid-feedback">Please select a date.</div>
+                        </div>
+
+                        <!-- Time Picker -->
+                        <div class="form-group">
+                            <label for="bookingTime"><i class="fas fa-clock"></i> Preferred Time</label>
+                            <select class="form-control" id="bookingTime" required>
+                                <option value="">Select a time slot</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="09:30">09:30 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="10:30">10:30 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="11:30">11:30 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="12:30">12:30 PM</option>
+                                <option value="13:00">01:00 PM</option>
+                                <option value="13:30">01:30 PM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="14:30">02:30 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="15:30">03:30 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                                <option value="16:30">04:30 PM</option>
+                                <option value="17:00">05:00 PM</option>
+                                <option value="17:30">05:30 PM</option>
+                                <option value="18:00">06:00 PM</option>
+                                <option value="18:30">06:30 PM</option>
+                                <option value="19:00">07:00 PM</option>
+                                <option value="19:30">07:30 PM</option>
+                                <option value="20:00">08:00 PM</option>
+                            </select>
+                            <div class="invalid-feedback">Please choose a time slot.</div>
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="form-group">
+                            <label for="notes"><i class="fas fa-sticky-note"></i> Special Notes <span class="text-muted">(optional)</span></label>
+                            <textarea class="form-control" id="notes" rows="3" placeholder="Any special requests or notes..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit" id="btn-submit">
+                            Proceed to Payment <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/booking.js"></script>
+</body>
+</html>

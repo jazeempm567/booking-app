@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Ahmed Al Mansouri",
+        "specialization": "Senior Hair Stylist",
+        "experience": "8 years",
+        "rating": 4.9,
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+        "available": true,
+        "nextSlot": "Today, 2:00 PM"
+    },
+    {
+        "id": 2,
+        "name": "Fatima Al Zahra",
+        "specialization": "Skin Care Expert",
+        "experience": "6 years",
+        "rating": 4.8,
+        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face",
+        "available": true,
+        "nextSlot": "Today, 3:30 PM"
+    },
+    {
+        "id": 3,
+        "name": "Priya Sharma",
+        "specialization": "Massage Therapist",
+        "experience": "10 years",
+        "rating": 5.0,
+        "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face",
+        "available": true,
+        "nextSlot": "Today, 1:00 PM"
+    },
+    {
+        "id": 4,
+        "name": "Carlos Rivera",
+        "specialization": "Nail Artist",
+        "experience": "5 years",
+        "rating": 4.7,
+        "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=face",
+        "available": true,
+        "nextSlot": "Today, 4:00 PM"
+    },
+    {
+        "id": 5,
+        "name": "Sarah Mitchell",
+        "specialization": "Makeup & Bridal Specialist",
+        "experience": "7 years",
+        "rating": 4.9,
+        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face",
+        "available": false,
+        "nextSlot": "Tomorrow, 10:00 AM"
+    },
+    {
+        "id": 6,
+        "name": "Omar Hassan",
+        "specialization": "Men's Grooming Expert",
+        "experience": "4 years",
+        "rating": 4.6,
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
+        "available": true,
+        "nextSlot": "Today, 5:00 PM"
+    },
+    {
+        "id": 7,
+        "name": "Lina Petrova",
+        "specialization": "Hair Coloring Specialist",
+        "experience": "9 years",
+        "rating": 4.8,
+        "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&crop=face",
+        "available": true,
+        "nextSlot": "Today, 11:00 AM"
+    },
+    {
+        "id": 8,
+        "name": "Deepa Nair",
+        "specialization": "Waxing & Threading Expert",
+        "experience": "6 years",
+        "rating": 4.7,
+        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face",
+        "available": true,
+        "nextSlot": "Today, 12:30 PM"
+    }
+]

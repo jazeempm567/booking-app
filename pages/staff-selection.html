@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Staff - Glamour Studio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/staff.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="services.html">
+                <i class="fas fa-spa brand-icon"></i> Glamour Studio
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="services.html"><i class="fas fa-home mr-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html#services"><i class="fas fa-concierge-bell mr-1"></i>Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookings.html"><i class="fas fa-calendar-check mr-1"></i>My Bookings</a></li>
+                    <li class="nav-item ml-lg-2"><a href="services.html" class="btn btn-outline-light btn-sm"><i class="fas fa-arrow-left"></i> Back to Services</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Booking Progress -->
+    <div class="progress-bar-wrap">
+        <div class="container">
+            <div class="booking-steps">
+                <div class="step completed"><span class="step-num">1</span><span class="step-label">Service</span></div>
+                <div class="step-line completed"></div>
+                <div class="step active"><span class="step-num">2</span><span class="step-label">Staff</span></div>
+                <div class="step-line"></div>
+                <div class="step"><span class="step-num">3</span><span class="step-label">Details</span></div>
+                <div class="step-line"></div>
+                <div class="step"><span class="step-num">4</span><span class="step-label">Payment</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Selected Service Info -->
+    <div class="container mt-4">
+        <div class="selected-service-banner" id="service-info">
+            <!-- Filled by JS -->
+        </div>
+    </div>
+
+    <!-- Staff Grid -->
+    <div class="container mt-3 mb-5">
+        <h2 class="section-title">Choose Your Specialist</h2>
+        <p class="section-subtitle">Select a professional to perform your service</p>
+        <div id="staff-container" class="row mt-3">
+            <!-- Staff cards loaded dynamically -->
+        </div>
+        <div id="staff-error" class="text-center py-5 d-none">
+            <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
+            <h4>Unable to load staff</h4>
+        </div>
+    </div>
+
+    <!-- Bottom Action Bar -->
+    <div class="bottom-action-bar" id="action-bar" style="display:none;">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="selected-info">
+                <span class="selected-label">Selected:</span>
+                <span class="selected-name" id="selected-staff-name">—</span>
+            </div>
+            <button class="btn-continue" id="btn-continue">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/staff-selection.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "name": "Men's Haircut",
+        "description": "Professional haircut with styling, wash & blow dry. Includes a hot towel finish.",
+        "duration": 30,
+        "price": 80,
+        "image": "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&h=400&fit=crop",
+        "category": "Hair"
+    },
+    {
+        "id": 2,
+        "name": "Women's Haircut & Styling",
+        "description": "Precision cut with wash, conditioning treatment and professional blow-dry styling.",
+        "duration": 60,
+        "price": 150,
+        "image": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop",
+        "category": "Hair"
+    },
+    {
+        "id": 3,
+        "name": "Hair Coloring",
+        "description": "Full hair coloring with premium products. Includes highlights or balayage options.",
+        "duration": 120,
+        "price": 350,
+        "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop",
+        "category": "Hair"
+    },
+    {
+        "id": 4,
+        "name": "Keratin Treatment",
+        "description": "Smoothing keratin treatment for frizz-free, shiny, and manageable hair up to 3 months.",
+        "duration": 150,
+        "price": 500,
+        "image": "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&h=400&fit=crop",
+        "category": "Hair"
+    },
+    {
+        "id": 5,
+        "name": "Classic Facial",
+        "description": "Deep cleansing facial with extraction, mask, and moisturizer for refreshed glowing skin.",
+        "duration": 60,
+        "price": 200,
+        "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop",
+        "category": "Skin Care"
+    },
+    {
+        "id": 6,
+        "name": "HydraFacial",
+        "description": "Advanced hydra-dermabrasion facial that cleanses, exfoliates, and hydrates the skin.",
+        "duration": 75,
+        "price": 450,
+        "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop",
+        "category": "Skin Care"
+    },
+    {
+        "id": 7,
+        "name": "Swedish Massage",
+        "description": "Full body relaxation massage using long strokes, kneading, and circular movements.",
+        "duration": 60,
+        "price": 250,
+        "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop",
+        "category": "Massage"
+    },
+    {
+        "id": 8,
+        "name": "Deep Tissue Massage",
+        "description": "Intense massage targeting deep muscle layers to relieve chronic tension and knots.",
+        "duration": 90,
+        "price": 350,
+        "image": "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=600&h=400&fit=crop",
+        "category": "Massage"
+    },
+    {
+        "id": 9,
+        "name": "Hot Stone Massage",
+        "description": "Therapeutic massage using heated volcanic stones placed on key pressure points.",
+        "duration": 90,
+        "price": 400,
+        "image": "https://images.unsplash.com/photo-1519823551278-64ac92734314?w=600&h=400&fit=crop",
+        "category": "Massage"
+    },
+    {
+        "id": 10,
+        "name": "Manicure & Gel Polish",
+        "description": "Nail shaping, cuticle care, hand massage and long-lasting gel polish application.",
+        "duration": 45,
+        "price": 120,
+        "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop",
+        "category": "Nails"
+    },
+    {
+        "id": 11,
+        "name": "Pedicure & Gel Polish",
+        "description": "Foot soak, exfoliation, nail shaping, and gel polish for beautifully groomed feet.",
+        "duration": 60,
+        "price": 150,
+        "image": "https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=600&h=400&fit=crop",
+        "category": "Nails"
+    },
+    {
+        "id": 12,
+        "name": "Beard Trim & Grooming",
+        "description": "Expert beard shaping, trimming, and conditioning with hot towel treatment.",
+        "duration": 20,
+        "price": 60,
+        "image": "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&h=400&fit=crop",
+        "category": "Grooming"
+    },
+    {
+        "id": 13,
+        "name": "Bridal Makeup Package",
+        "description": "Complete bridal makeup with trial session, hairstyling, and touch-up kit for the big day.",
+        "duration": 180,
+        "price": 1500,
+        "image": "https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=600&h=400&fit=crop",
+        "category": "Makeup"
+    },
+    {
+        "id": 14,
+        "name": "Eyebrow Threading",
+        "description": "Precise eyebrow shaping using the threading technique for clean, defined brows.",
+        "duration": 15,
+        "price": 40,
+        "image": "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&h=400&fit=crop",
+        "category": "Grooming"
+    },
+    {
+        "id": 15,
+        "name": "Full Body Waxing",
+        "description": "Complete body waxing using premium hypoallergenic wax for smooth, hair-free skin.",
+        "duration": 120,
+        "price": 400,
+        "image": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop",
+        "category": "Hair Removal"
+    }
+]

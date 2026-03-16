@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Glamour Studio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/payment.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="services.html">
+                <i class="fas fa-spa brand-icon"></i> Glamour Studio
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="services.html"><i class="fas fa-home mr-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html#services"><i class="fas fa-concierge-bell mr-1"></i>Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookings.html"><i class="fas fa-calendar-check mr-1"></i>My Bookings</a></li>
+                    <li class="nav-item ml-lg-2"><a href="booking-form.html" class="btn btn-outline-light btn-sm"><i class="fas fa-arrow-left"></i> Back</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Steps -->
+    <div class="progress-bar-wrap">
+        <div class="container">
+            <div class="booking-steps">
+                <div class="step completed"><span class="step-num">1</span><span class="step-label">Service</span></div>
+                <div class="step-line completed"></div>
+                <div class="step completed"><span class="step-num">2</span><span class="step-label">Staff</span></div>
+                <div class="step-line completed"></div>
+                <div class="step completed"><span class="step-num">3</span><span class="step-label">Details</span></div>
+                <div class="step-line completed"></div>
+                <div class="step active"><span class="step-num">4</span><span class="step-label">Payment</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-5">
+        <div class="row justify-content-center">
+
+            <!-- Left: Order Summary -->
+            <div class="col-lg-4 col-md-5 mb-4">
+                <div class="summary-card">
+                    <h6 class="summary-heading"><i class="fas fa-receipt"></i> Order Summary</h6>
+                    <div class="summary-row">
+                        <span class="summary-label">Service</span>
+                        <span class="summary-value" id="sum-service">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Specialist</span>
+                        <span class="summary-value" id="sum-staff">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Date</span>
+                        <span class="summary-value" id="sum-date">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Time</span>
+                        <span class="summary-value" id="sum-time">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Customer</span>
+                        <span class="summary-value" id="sum-name">—</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row">
+                        <span class="summary-label">Subtotal</span>
+                        <span class="summary-value" id="sum-subtotal">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">VAT (5%)</span>
+                        <span class="summary-value" id="sum-vat">—</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row total-row">
+                        <span class="summary-label">Total</span>
+                        <span class="summary-value" id="sum-total">—</span>
+                    </div>
+                </div>
+
+                <!-- Security Badges -->
+                <div class="security-badges mt-3">
+                    <div class="badge-item"><i class="fas fa-lock"></i> SSL Encrypted</div>
+                    <div class="badge-item"><i class="fas fa-shield-alt"></i> PCI Compliant</div>
+                    <div class="badge-item"><i class="fas fa-undo"></i> Refund Policy</div>
+                </div>
+            </div>
+
+            <!-- Right: Payment Methods -->
+            <div class="col-lg-6 col-md-7">
+                <div class="payment-card">
+                    <h4 class="payment-heading">Payment Method</h4>
+                    <p class="payment-subtext">All transactions are secure and encrypted</p>
+
+                    <!-- Payment Method Tabs -->
+                    <div class="payment-tabs">
+                        <button class="pay-tab active" data-method="card">
+                            <i class="fas fa-credit-card"></i> Card
+                        </button>
+                        <button class="pay-tab" data-method="apple-pay">
+                            <i class="fab fa-apple"></i> Apple Pay
+                        </button>
+                    </div>
+
+                    <!-- Card Payment Form -->
+                    <div id="card-form" class="payment-method-content">
+                        <form id="payment-form" novalidate>
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Name on Card</label>
+                                <input type="text" class="form-control" id="card-name" placeholder="e.g. Ahmed Al Mansouri" required>
+                                <div class="invalid-feedback">Please enter the cardholder name.</div>
+                            </div>
+
+                            <!-- Stripe Card Element (secure iframe) -->
+                            <div class="form-group">
+                                <label><i class="fas fa-credit-card"></i> Card Details</label>
+                                <div id="stripe-card-element" class="stripe-element-container">
+                                    <!-- Stripe Elements will render here -->
+                                </div>
+                                <div id="card-errors" class="stripe-error" role="alert"></div>
+                            </div>
+
+                            <button type="submit" class="btn-pay" id="btn-pay">
+                                <span class="btn-pay-text">Pay <span id="btn-amount">0</span> AED</span>
+                                <span class="btn-pay-loader d-none"><i class="fas fa-spinner fa-spin"></i> Processing...</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Apple Pay / Google Pay Section (via Stripe Payment Request) -->
+                    <div id="apple-pay-form" class="payment-method-content d-none">
+                        <div class="apple-pay-area">
+                            <div id="payment-request-button">
+                                <!-- Stripe Payment Request Button renders here (Apple Pay / Google Pay) -->
+                            </div>
+                            <div id="payment-request-unavailable" class="d-none">
+                                <div class="apple-pay-icon">
+                                    <i class="fab fa-apple fa-3x"></i>
+                                </div>
+                                <p class="mt-3 mb-0">Apple Pay / Google Pay is not available on this browser or device.</p>
+                                <p class="apple-pay-note mt-2">
+                                    <i class="fas fa-info-circle"></i>
+                                    Use Safari on iPhone/Mac for Apple Pay, or Chrome on Android for Google Pay.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accepted Cards -->
+                    <div class="accepted-cards mt-3">
+                        <span class="accepted-label">We accept</span>
+                        <div class="card-logos">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-amex"></i>
+                            <i class="fab fa-cc-apple-pay"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content success-modal">
+                <div class="modal-body text-center py-5">
+                    <div class="success-checkmark">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4 class="mt-3">Payment Successful!</h4>
+                    <p class="text-muted">Your booking has been confirmed</p>
+                    <p class="transaction-id">Transaction ID: <strong id="txn-id"></strong></p>
+                    <button class="btn-view-receipt" id="btn-view-receipt">
+                        View Receipt <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="../js/payment.js"></script>
+</body>
+</html>
