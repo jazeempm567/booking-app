@@ -1,137 +1,347 @@
 [
     {
         "id": 1,
-        "name": "Men's Haircut",
-        "description": "Professional haircut with styling, wash & blow dry. Includes a hot towel finish.",
-        "duration": 30,
-        "price": 80,
-        "image": "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&h=400&fit=crop",
-        "category": "Hair"
+        "name": "Special Oil Massage",
+        "description": "A luxurious massage using premium oils to nourish and relax your skin while relieving muscle tension.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 250
+            },
+            {
+                "duration": 60,
+                "price": 350
+            },
+            {
+                "duration": 90,
+                "price": 450
+            }
+        ],
+        "image": "/images/services/special-oil-massage.png",
+        "category": "Massage",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 2,
-        "name": "Women's Haircut & Styling",
-        "description": "Precision cut with wash, conditioning treatment and professional blow-dry styling.",
-        "duration": 60,
-        "price": 150,
-        "image": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop",
-        "category": "Hair"
+        "name": "Special Full Body Lotion Massage",
+        "description": "Soothing massage with premium lotions for smooth skin and deep relaxation.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 300
+            },
+            {
+                "duration": 60,
+                "price": 350
+            },
+            {
+                "duration": 90,
+                "price": 450
+            }
+        ],
+        "image": "/images/services/special-full-body-lotion-massage.png",
+        "category": "Massage",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 3,
-        "name": "Hair Coloring",
-        "description": "Full hair coloring with premium products. Includes highlights or balayage options.",
-        "duration": 120,
-        "price": 350,
-        "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop",
-        "category": "Hair"
+        "name": "Hot Stone Massage",
+        "description": "Therapeutic massage using heated volcanic stones placed on key pressure points for deep relaxation.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 300
+            },
+            {
+                "duration": 60,
+                "price": 350
+            },
+            {
+                "duration": 90,
+                "price": 450
+            }
+        ],
+        "image": "/images/services/hot-stone-massage.png",
+        "category": "Massage",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 4,
-        "name": "Keratin Treatment",
-        "description": "Smoothing keratin treatment for frizz-free, shiny, and manageable hair up to 3 months.",
-        "duration": 150,
-        "price": 500,
-        "image": "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&h=400&fit=crop",
-        "category": "Hair"
+        "name": "Hot Oil Massage",
+        "description": "Warm oil massage therapy that promotes circulation and deep tissue relaxation.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 300
+            },
+            {
+                "duration": 60,
+                "price": 350
+            },
+            {
+                "duration": 90,
+                "price": 450
+            }
+        ],
+        "image": "/images/services/hot-oil-massage.png",
+        "category": "Massage",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 5,
-        "name": "Classic Facial",
-        "description": "Deep cleansing facial with extraction, mask, and moisturizer for refreshed glowing skin.",
-        "duration": 60,
-        "price": 200,
-        "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop",
-        "category": "Skin Care"
+        "name": "Swedish Massage",
+        "description": "Full body relaxation massage using long strokes, kneading, and circular movements. Perfect for stress relief.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 300
+            },
+            {
+                "duration": 60,
+                "price": 350
+            },
+            {
+                "duration": 90,
+                "price": 450
+            }
+        ],
+        "image": "/images/services/swedish-massage.png",
+        "category": "Massage",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 6,
-        "name": "HydraFacial",
-        "description": "Advanced hydra-dermabrasion facial that cleanses, exfoliates, and hydrates the skin.",
-        "duration": 75,
-        "price": 450,
-        "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop",
-        "category": "Skin Care"
+        "name": "Aroma Massage",
+        "description": "Relaxing massage combined with essential oils to enhance well-being and promote deep relaxation.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 350
+            },
+            {
+                "duration": 60,
+                "price": 450
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ],
+        "image": "/images/services/aroma-massage.png",
+        "category": "Wellness",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 7,
-        "name": "Swedish Massage",
-        "description": "Full body relaxation massage using long strokes, kneading, and circular movements.",
-        "duration": 60,
-        "price": 250,
-        "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop",
-        "category": "Massage"
+        "name": "Thai Massage",
+        "description": "Traditional Thai massage that combines acupressure, joint mobilization, and stretching. Energizes the body.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 350
+            },
+            {
+                "duration": 60,
+                "price": 450
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ],
+        "image": "/images/services/thai-massage.png",
+        "category": "Massage",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 8,
-        "name": "Deep Tissue Massage",
-        "description": "Intense massage targeting deep muscle layers to relieve chronic tension and knots.",
-        "duration": 90,
-        "price": 350,
-        "image": "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=600&h=400&fit=crop",
-        "category": "Massage"
+        "name": "Special Body Oil Massage",
+        "description": "Premium full-body massage with specially selected oils for ultimate nourishment and relaxation.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 350
+            },
+            {
+                "duration": 60,
+                "price": 450
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ],
+        "image": "/images/services/special-body-oil-massage.png",
+        "category": "Massage",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 9,
-        "name": "Hot Stone Massage",
-        "description": "Therapeutic massage using heated volcanic stones placed on key pressure points.",
-        "duration": 90,
-        "price": 400,
-        "image": "https://images.unsplash.com/photo-1519823551278-64ac92734314?w=600&h=400&fit=crop",
-        "category": "Massage"
+        "name": "Deep Tissue Massage",
+        "description": "Intense massage targeting deep muscle layers to relieve chronic tension and knots. Ideal for muscle recovery.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 350
+            },
+            {
+                "duration": 60,
+                "price": 450
+            },
+            {
+                "duration": 90,
+                "price": 680
+            }
+        ],
+        "image": "/images/services/deep-tissue-massage.png",
+        "category": "Massage",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 10,
-        "name": "Manicure & Gel Polish",
-        "description": "Nail shaping, cuticle care, hand massage and long-lasting gel polish application.",
-        "duration": 45,
-        "price": 120,
-        "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop",
-        "category": "Nails"
+        "name": "Moroccan Bath",
+        "description": "Traditional Moroccan hammam experience with exfoliation and purifying treatments.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 350
+            },
+            {
+                "duration": 60,
+                "price": 450
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ],
+        "image": "/images/services/moroccan-bath.png",
+        "category": "Wellness",
+        "location": "Studio",
+        "isHomeService": false
     },
     {
         "id": 11,
-        "name": "Pedicure & Gel Polish",
-        "description": "Foot soak, exfoliation, nail shaping, and gel polish for beautifully groomed feet.",
-        "duration": 60,
-        "price": 150,
-        "image": "https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=600&h=400&fit=crop",
-        "category": "Nails"
+        "name": "Four Hand Massage",
+        "description": "Dual therapist massage for an enhanced, synchronized full-body relaxation experience.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 350
+            },
+            {
+                "duration": 60,
+                "price": 450
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ],
+        "image": "/images/services/four-hand-massage.png",
+        "category": "Premium",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 12,
-        "name": "Beard Trim & Grooming",
-        "description": "Expert beard shaping, trimming, and conditioning with hot towel treatment.",
-        "duration": 20,
-        "price": 60,
-        "image": "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&h=400&fit=crop",
-        "category": "Grooming"
+        "name": "Couple Massage",
+        "description": "Two therapists provide simultaneous massages in a private suite. Perfect for couples and special occasions.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 400
+            },
+            {
+                "duration": 60,
+                "price": 500
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ],
+        "image": "/images/services/couple-massage.png",
+        "category": "Premium",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 13,
-        "name": "Bridal Makeup Package",
-        "description": "Complete bridal makeup with trial session, hairstyling, and touch-up kit for the big day.",
-        "duration": 180,
-        "price": 1500,
-        "image": "https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=600&h=400&fit=crop",
-        "category": "Makeup"
+        "name": "Arabic Massage",
+        "description": "Traditional Arabic healing massage combining ancient techniques with modern relaxation.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 400
+            },
+            {
+                "duration": 60,
+                "price": 500
+            },
+            {
+                "duration": 90,
+                "price": 650
+            }
+        ],
+        "image": "/images/services/arabic-massage.png",
+        "category": "Massage",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 14,
-        "name": "Eyebrow Threading",
-        "description": "Precise eyebrow shaping using the threading technique for clean, defined brows.",
-        "duration": 15,
-        "price": 40,
-        "image": "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&h=400&fit=crop",
-        "category": "Grooming"
+        "name": "Russian Massage",
+        "description": "Energizing therapeutic massage using vigorous techniques for muscle recovery and invigoration.",
+        "durations": [
+            {
+                "duration": 45,
+                "price": 400
+            },
+            {
+                "duration": 60,
+                "price": 550
+            },
+            {
+                "duration": 90,
+                "price": 650
+            }
+        ],
+        "image": "/images/services/russian-massage.png",
+        "category": "Massage",
+        "location": "Studio",
+        "isHomeService": true
     },
     {
         "id": 15,
-        "name": "Full Body Waxing",
-        "description": "Complete body waxing using premium hypoallergenic wax for smooth, hair-free skin.",
-        "duration": 120,
-        "price": 400,
-        "image": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop",
-        "category": "Hair Removal"
+        "name": "Foot Massage",
+        "description": "Reflexology and pressure point massage focused on the feet to promote overall wellness and relaxation.",
+        "durations": [
+            {
+                "duration": 30,
+                "price": 150
+            },
+            {
+                "duration": 45,
+                "price": 250
+            },
+            {
+                "duration": 60,
+                "price": 300
+            }
+        ],
+        "image": "/images/services/foot-massage.png",
+        "category": "Wellness",
+        "location": "Studio",
+        "isHomeService": true
     }
 ]

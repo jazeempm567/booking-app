@@ -24,6 +24,8 @@ body { background-color: #0c0c14; font-family: 'Poppins', Arial, sans-serif; pad
 
 .selected-service-banner { background: #161622; border-left: 4px solid #c9a96e; border-radius: 10px; padding: 14px 20px; font-size: 0.95rem; color: #f0ece2; }
 .service-price-tag { background: linear-gradient(135deg, #c9a96e, #e8d5a8); color: #0c0c14; padding: 5px 16px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; }
+.service-duration-tag { display: inline-block; background: rgba(201,169,110,0.15); color: #c9a96e; padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; margin-left: 12px; border: 1px solid rgba(201,169,110,0.2); }
+.service-location-tag { display: inline-block; background: rgba(201,169,110,0.15); color: #c9a96e; padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; margin-left: 8px; border: 1px solid rgba(201,169,110,0.2); }
 
 .section-title { font-weight: 700; font-size: 1.6rem; color: #f0ece2; }
 .section-subtitle { color: #8a8a9a; font-size: 0.95rem; margin-bottom: 0; }

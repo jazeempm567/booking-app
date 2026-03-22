@@ -1,18 +1,34 @@
-# Booking App
+# Zahi Spa — Premium Massage & Wellness Center
 
 ## Overview
-The Booking App is a dynamic web application that allows users to view services, book appointments, and make payments. It is designed to provide a seamless experience for users looking to schedule appointments with various staff members.
+Zahi Spa is a premium booking application for massage therapy and wellness services. Users can browse our selection of therapeutic massage treatments, book appointments with expert therapists, and make secure payments. We offer studio treatments and specialized massage services at our Dubai location.
 
 ## Features
-- View a list of available services.
-- Select a staff member for appointments.
-- Input user information (name, email, contact number).
-- Process payments through a secure payment gateway that supports card payments and Apple Pay in the UAE.
-- Generate and display a booking receipt after successful payment.
+- Browse 15 premium massage and wellness services
+- Filter services including dedicated home service options
+- Select expert therapists for appointments
+- Input user information (name, email, contact number)
+- Process payments through secure Stripe payment gateway (AED currency)
+- Generate and display booking receipts after successful payment
+- Responsive design for mobile, tablet, and desktop
+
+## Services Offered
+- Swedish Massage
+- Deep Tissue Massage (available for home services)
+- Thai Massage (available for home services)
+- Hot Stone Massage
+- Aromatherapy Massage (available for home services)
+- Sports Massage (available for home services)
+- Reflexology (available for home services)
+- Couples Massage
+- Back, Neck & Shoulder Massage (available for home services)
+- Facial Spa
+- Prenatal Massage (available for home services)
+- Lomi Lomi Massage
 
 ## Project Structure
 ```
-booking-app
+zahi-spa
 ├── css
 │   ├── style.css
 │   ├── services.css

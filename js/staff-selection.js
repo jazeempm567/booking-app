@@ -6,6 +6,11 @@ $(document).ready(function () {
     const serviceId = params.get('serviceId');
     const serviceName = params.get('serviceName') || 'Selected Service';
     const servicePrice = params.get('price') || '—';
+    const serviceDuration = params.get('duration') || '—';
+    const serviceLocation = params.get('location') || 'studio';
+
+    // Format location display
+    const locationDisplay = serviceLocation === 'home' ? '🏠 Your Home' : '🏢 Our Studio';
 
     // Show selected service banner
     $('#service-info').html(`
@@ -13,6 +18,8 @@ $(document).ready(function () {
             <div>
                 <i class="fas fa-concierge-bell mr-2"></i>
                 <strong>${decodeURIComponent(serviceName)}</strong>
+                <span class="service-duration-tag"><i class="far fa-clock"></i> ${serviceDuration} min</span>
+                <span class="service-location-tag" style="margin-left: 8px;"><i class="fas fa-map-marker-alt"></i> ${locationDisplay}</span>
             </div>
             <div class="service-price-tag">${servicePrice} AED</div>
         </div>
@@ -22,6 +29,8 @@ $(document).ready(function () {
     sessionStorage.setItem('serviceId', serviceId);
     sessionStorage.setItem('serviceName', decodeURIComponent(serviceName));
     sessionStorage.setItem('servicePrice', servicePrice);
+    sessionStorage.setItem('serviceDuration', serviceDuration);
+    sessionStorage.setItem('serviceLocation', serviceLocation);
 
     let selectedStaffId = null;
 

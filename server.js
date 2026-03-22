@@ -1,4 +1,4 @@
-// ── Glamour Studio — Stripe Payment Server ──
+// ── Zahi Spa — Stripe Payment Server ──
 
 require('dotenv').config();
 const express = require('express');

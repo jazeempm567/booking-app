@@ -5,15 +5,29 @@ $(document).ready(function () {
     const serviceName = sessionStorage.getItem('serviceName') || '—';
     const staffName = sessionStorage.getItem('selectedStaffName') || '—';
     const servicePrice = sessionStorage.getItem('servicePrice') || '—';
+    const serviceLocation = sessionStorage.getItem('serviceLocation') || 'studio';
+    const locationDisplay = serviceLocation === 'home' ? '🏠 Your Home' : '🏢 Our Studio';
 
     $('#sum-service').text(serviceName);
     $('#sum-staff').text(staffName);
     $('#sum-price').text(servicePrice !== '—' ? servicePrice + ' AED' : '—');
 
+    // Add location to summary if available
+    const summaryCard = $('.summary-card');
+    if (summaryCard.find('.summary-row:contains("Location")').length === 0) {
+        summaryCard.find('hr').before(`
+            <div class="summary-row">
+                <span class="summary-label">Location</span>
+                <span class="summary-value">${locationDisplay}</span>
+            </div>
+        `);
+    }
+
     // Set back button to preserve query params
     const serviceId = sessionStorage.getItem('serviceId') || '';
     const encodedName = encodeURIComponent(serviceName);
-    $('#btn-back').attr('href', `staff-selection.html?serviceId=${serviceId}&serviceName=${encodedName}&price=${servicePrice}`);
+    const duration = sessionStorage.getItem('serviceDuration') || '';
+    $('#btn-back').attr('href', `staff-selection.html?serviceId=${serviceId}&serviceName=${encodedName}&price=${servicePrice}&duration=${duration}&location=${serviceLocation}`);
 
     // Set min date to today
     const today = new Date().toISOString().split('T')[0];

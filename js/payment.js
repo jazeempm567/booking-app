@@ -6,6 +6,8 @@ $(document).ready(async function () {
     // ── Populate summary from sessionStorage ──
     const serviceName = sessionStorage.getItem('serviceName') || '—';
     const staffName = sessionStorage.getItem('selectedStaffName') || '—';
+    const serviceLocation = sessionStorage.getItem('serviceLocation') || 'studio';
+    const locationDisplay = serviceLocation === 'home' ? '🏠 Your Home' : '🏢 Our Studio';
     const price = parseFloat(sessionStorage.getItem('servicePrice')) || 0;
     const bookingDate = sessionStorage.getItem('bookingDate') || '—';
     const bookingTime = sessionStorage.getItem('bookingTime') || '—';
@@ -17,6 +19,8 @@ $(document).ready(async function () {
 
     $('#sum-service').text(serviceName);
     $('#sum-staff').text(staffName);
+    $('#sum-location').text(locationDisplay);
+    $('#location-row').show();
     $('#sum-date').text(bookingDate);
     $('#sum-time').text(formatTime(bookingTime));
     $('#sum-name').text(userName);

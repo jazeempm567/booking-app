@@ -1,7 +1,7 @@
 {
-    "name": "glamour-studio-booking",
+    "name": "zahi-spa-booking",
     "version": "1.0.0",
-    "description": "Glamour Studio Booking App with Stripe Payment",
+    "description": "Zahi Spa - Premium Massage & Wellness Center Booking App with Stripe Payment",
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
