@@ -1,52 +1,118 @@
 ﻿[
     {
         "id": 1,
-        "name": "Fatima Al Zahra",
-        "specialization": "Spa & Massage Therapist",
+        "name": "Ammy",
+        "nationality": "Thailand",
+        "specialization": "Thai Massage & Wellness",
         "experience": "8 years",
         "rating": 4.9,
-        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face",
+        "image": "/images/staffs/ammy_thailand/ammy_thailand-1.jpg",
+        "gallery": [
+            "/images/staffs/ammy_thailand/ammy_thailand-1.jpg",
+            "/images/staffs/ammy_thailand/ammy_thailand-2.jpg",
+            "/images/staffs/ammy_thailand/ammy_thailand-3.jpg"
+        ],
         "available": true,
         "nextSlot": "Today, 2:00 PM"
     },
     {
         "id": 2,
-        "name": "Priya Sharma",
-        "specialization": "Professional Massage Therapist",
+        "name": "Mariam",
+        "nationality": "Morocco",
+        "specialization": "Moroccan Spa Therapist",
         "experience": "10 years",
         "rating": 5.0,
-        "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face",
+        "image": "/images/staffs/mariam_morocco/mariam_morocco_1.jpg",
+        "gallery": [
+            "/images/staffs/mariam_morocco/mariam_morocco_1.jpg",
+            "/images/staffs/mariam_morocco/mariam_morocco-_2.jpg",
+            "/images/staffs/mariam_morocco/mariam_morocco-_3.jpg"
+        ],
         "available": true,
         "nextSlot": "Today, 1:00 PM"
     },
     {
         "id": 3,
-        "name": "Sarah Mitchell",
-        "specialization": "Wellness & Relaxation Expert",
+        "name": "Milla",
+        "nationality": "Russia",
+        "specialization": "Russian Massage Specialist",
         "experience": "7 years",
         "rating": 4.9,
-        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+        "image": "/images/staffs/milla_russia/milla_russia_1.jpg",
+        "gallery": [
+            "/images/staffs/milla_russia/milla_russia_1.jpg",
+            "/images/staffs/milla_russia/milla_russia_2.jpg",
+            "/images/staffs/milla_russia/milla_russia_3.jpg",
+            "/images/staffs/milla_russia/milla_russia_4.jpg"
+        ],
         "available": false,
         "nextSlot": "Tomorrow, 10:00 AM"
     },
     {
         "id": 4,
-        "name": "Lina Petrova",
-        "specialization": "Therapeutic Massage Specialist",
+        "name": "Nadia",
+        "nationality": "Thailand",
+        "specialization": "Traditional Thai Therapy",
         "experience": "9 years",
         "rating": 4.8,
-        "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&crop=face",
+        "image": "/images/staffs/nadia_thailand/nadia_thailand_1.jpg",
+        "gallery": [
+            "/images/staffs/nadia_thailand/nadia_thailand_1.jpg",
+            "/images/staffs/nadia_thailand/nadia_thailand_2.jpg",
+            "/images/staffs/nadia_thailand/nadia_thailand_3.jpg"
+        ],
         "available": true,
         "nextSlot": "Today, 11:00 AM"
     },
     {
         "id": 5,
-        "name": "Deepa Nair",
+        "name": "Smile",
+        "nationality": "Thailand",
         "specialization": "Holistic Spa Therapist",
         "experience": "6 years",
         "rating": 4.7,
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face",
+        "image": "/images/staffs/smile_thailand/smile_thailand_1.jpg",
+        "gallery": [
+            "/images/staffs/smile_thailand/smile_thailand_1.jpg",
+            "/images/staffs/smile_thailand/smile_thailand_2.jpg",
+            "/images/staffs/smile_thailand/smile_thailand_3.jpg",
+            "/images/staffs/smile_thailand/smile_thailand_4.jpg",
+            "/images/staffs/smile_thailand/smile_thailand_5.jpg"
+        ],
         "available": true,
         "nextSlot": "Today, 12:30 PM"
+    },
+    {
+        "id": 6,
+        "name": "Yasmeen",
+        "nationality": "Morocco",
+        "specialization": "Premium Spa Expert",
+        "experience": "11 years",
+        "rating": 4.9,
+        "image": "/images/staffs/yasmeen_morocco/yasmeen_morocco_1.jpg",
+        "gallery": [
+            "/images/staffs/yasmeen_morocco/yasmeen_morocco_1.jpg",
+            "/images/staffs/yasmeen_morocco/yasmeen_morocco_2.jpg",
+            "/images/staffs/yasmeen_morocco/yasmeen_morocco_3.jpg"
+        ],
+        "available": true,
+        "nextSlot": "Today, 3:00 PM"
+    },
+    {
+        "id": 7,
+        "name": "Yaya",
+        "nationality": "Thailand",
+        "specialization": "Therapeutic Massage Expert",
+        "experience": "5 years",
+        "rating": 4.6,
+        "image": "/images/staffs/yaya_thailand/yaya_thailand_1.jpg",
+        "gallery": [
+            "/images/staffs/yaya_thailand/yaya_thailand_1.jpg",
+            "/images/staffs/yaya_thailand/yaya_thailand_2.jpg",
+            "/images/staffs/yaya_thailand/yaya_thailand_3.jpg",
+            "/images/staffs/yaya_thailand/yaya_thailand_4.jpg"
+        ],
+        "available": true,
+        "nextSlot": "Today, 4:00 PM"
     }
 ]

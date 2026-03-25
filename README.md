@@ -76,6 +76,31 @@ zahi-spa
 - jQuery
 - Bootstrap
 
+## 🚀 Production Deployment
+
+**Deploy for FREE on Railway** (recommended)
+
+### Quick Start
+1. Push code to GitHub
+2. Go to [railway.app](https://railway.app)
+3. Connect GitHub repository
+4. Add Stripe API keys as environment variables
+5. Deploy with one click
+
+**For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)**
+
+### Free Hosting Options
+- **Railway** ⭐ (Best - $5/month credit, no cold starts)
+- **Vercel** (Good for frontend, has cold starts)
+- **Render** (Alternative to Railway)
+
+### Requirements for Production
+- Stripe account (free) with API keys
+- GitHub repository for auto-deployment
+- Railway/Vercel account (free)
+
+---
+
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes.
 

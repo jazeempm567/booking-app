@@ -75,6 +75,8 @@ $(document).ready(function () {
     });
 
     // ── Duration selection modal ──
+    let currentService = null; // Store current service for location changes
+    
     $(document).on('click', '.btn-book', function () {
         const serviceId = $(this).data('service-id');
         const serviceName = $(this).data('service-name');
@@ -83,6 +85,9 @@ $(document).ready(function () {
         // Find the service to get full details
         const service = allServices.find(s => s.id === serviceId);
         if (!service) return;
+
+        // Store current service
+        currentService = service;
 
         // Show/hide location selection based on service type
         const locationContainer = $('#locationSelectionContainer');
@@ -125,6 +130,49 @@ $(document).ready(function () {
         $('#durationModal').data('service-id', serviceId);
     });
 
+    // ── Function to update duration options based on location ──
+    function updateDurationOptions(service, location) {
+        let durationsToShow = service.durations;
+        
+        // Use homeServiceDurations if available and location is home
+        if (location === 'home' && service.homeServiceDurations) {
+            durationsToShow = service.homeServiceDurations;
+        }
+
+        // Build duration options HTML
+        let durationHTML = '<div class="duration-options">';
+        durationsToShow.forEach((dur, index) => {
+            const selected = index === 0 ? 'selected' : ''; // Default to first (minimum)
+            const isHomeService = location === 'home' && service.homeServiceDurations;
+            
+            durationHTML += `
+                <div class="duration-option-wrapper ${selected}">
+                    <label class="duration-option">
+                        <input type="radio" name="duration" value="${dur.duration}" data-price="${dur.price}" class="duration-input" data-base-duration="${dur.duration}" data-base-price="${dur.price}" ${index === 0 ? 'checked' : ''}>
+                        <span class="duration-value">${dur.duration} min</span>
+                        <span class="duration-price">${dur.price} AED</span>
+                    </label>
+                    ${isHomeService ? `
+                        <button type="button" class="btn-add-time" data-duration="${dur.duration}">
+                            <i class="fas fa-plus"></i> 30 min
+                        </button>
+                    ` : ''}
+                </div>
+            `;
+        });
+        durationHTML += '</div>';
+
+        $('#durationOptionsContainer').html(durationHTML);
+        
+        // Set the default price (minimum duration)
+        const minPrice = Math.min(...durationsToShow.map(d => d.price));
+        $('#selectedPrice').text(minPrice);
+        $('#selectedDuration').text(durationsToShow[0].duration);
+        
+        // Reset extra time display
+        $('#extraTimeDisplay').html('');
+    }
+
     // ── Handle location option selection ──
     $(document).on('click', '.location-option', function () {
         const location = $(this).data('location');
@@ -132,6 +180,11 @@ $(document).ready(function () {
         $(this).addClass('selected');
         $(this).find('input[type="radio"]').prop('checked', true);
         sessionStorage.setItem('selectedLocation', location);
+        
+        // Update duration options based on new location
+        if (currentService) {
+            updateDurationOptions(currentService, location);
+        }
     });
 
     // ── Handle duration option selection ──
@@ -140,12 +193,88 @@ $(document).ready(function () {
         const duration = $(this).val();
         
         // Update active label styling
-        $('.duration-option').removeClass('selected');
-        $(this).closest('.duration-option').addClass('selected');
+        $('.duration-option-wrapper').removeClass('selected');
+        $(this).closest('.duration-option-wrapper').addClass('selected');
         
         // Update displayed price and duration
         $('#selectedPrice').text(price);
         $('#selectedDuration').text(duration);
+        
+        // Reset extra time display
+        $('#extraTimeDisplay').html('');
+    });
+
+    // ── Handle add 30 minutes button ──
+    $(document).on('click', '.btn-add-time', function (e) {
+        e.preventDefault();
+        const baseDuration = parseInt($(this).data('duration'));
+        const $durationInput = $(this).closest('.duration-option-wrapper').find('.duration-input');
+        const basePrice = parseInt($durationInput.data('base-price'));
+        const baseDurationAttr = parseInt($durationInput.data('base-duration'));
+        
+        // Get current extra time (if any)
+        let extraTimeMinutes = parseInt($('#extraTimeDisplay').data('extra-time') || 0);
+        
+        // Add 30 minutes
+        extraTimeMinutes += 30;
+        
+        // Calculate new duration and price
+        const newDuration = baseDuration + extraTimeMinutes;
+        const newPrice = basePrice + (extraTimeMinutes / 30) * 100; // 100 AED per 30 minutes
+        
+        // Update display with extra time info
+        const extraSteps = extraTimeMinutes / 30;
+        let extraDisplay = `
+            <div id="extraTimeDisplay" class="extra-time-info" data-extra-time="${extraTimeMinutes}">
+                <div class="extra-time-header">
+                    <i class="fas fa-plus-circle"></i> Additional Time
+                </div>
+                <div class="extra-time-details">
+                    <span class="extra-time-value">+${extraTimeMinutes} min</span>
+                    <span class="extra-time-cost">+${(extraSteps * 100)} AED</span>
+                </div>
+                <button type="button" class="btn-remove-time">
+                    <i class="fas fa-times"></i> Remove
+                </button>
+            </div>
+        `;
+        
+        // Update hidden duration input with new total
+        $durationInput.val(newDuration);
+        $durationInput.data('price', newPrice);
+        
+        // Insert extra time display after the selected duration option
+        const $parent = $(this).closest('.duration-option-wrapper');
+        $parent.find('#extraTimeDisplay').remove();
+        $parent.after(extraDisplay);
+        
+        // Update displayed price and duration
+        $('#selectedPrice').text(newPrice);
+        $('#selectedDuration').text(newDuration);
+    });
+
+    // ── Handle remove extra time ──
+    $(document).on('click', '.btn-remove-time', function (e) {
+        e.preventDefault();
+        
+        // Find the associated duration option
+        const $extraDisplay = $(this).closest('.extra-time-info');
+        const $durationWrapper = $extraDisplay.prev('.duration-option-wrapper');
+        const $durationInput = $durationWrapper.find('.duration-input');
+        
+        // Reset to base values
+        const baseDuration = parseInt($durationInput.data('base-duration'));
+        const basePrice = parseInt($durationInput.data('base-price'));
+        
+        $durationInput.val(baseDuration);
+        $durationInput.data('price', basePrice);
+        
+        // Remove extra time display
+        $extraDisplay.remove();
+        
+        // Update displayed price and duration
+        $('#selectedPrice').text(basePrice);
+        $('#selectedDuration').text(baseDuration);
     });
 
     // ── Confirm duration and proceed ──
@@ -198,14 +327,31 @@ function displayServices(services) {
     $('#no-services').addClass('d-none');
 
     services.forEach((service, index) => {
-        // Calculate price range
+        // Calculate price range for studio
         const prices = service.durations.map(d => d.price);
         const minPrice = Math.min(...prices);
         const maxPrice = Math.max(...prices);
         const priceRange = minPrice === maxPrice ? `${minPrice}` : `${minPrice} - ${maxPrice}`;
         
-        // Get durations for display
+        // Get durations for display - show only for studio by default
         const durations = service.durations.map(d => d.duration).join(', ');
+        
+        // Build home service info if available
+        let homeServiceInfo = '';
+        if (service.isHomeService && service.homeServiceDurations) {
+            const homePrices = service.homeServiceDurations.map(d => d.price);
+            const homeMinPrice = Math.min(...homePrices);
+            const homeMaxPrice = Math.max(...homePrices);
+            const homepriceRange = homeMinPrice === homeMaxPrice ? `${homeMinPrice}` : `${homeMinPrice} - ${homeMaxPrice}`;
+            const homeDurations = service.homeServiceDurations.map(d => d.duration).join(', ');
+            
+            homeServiceInfo = `
+                <div class="home-service-info">
+                    <small style="color: #ffd700; font-weight: bold;">🏠 HOME SERVICE</small>
+                    <div>${homeDurations} min • ${homepriceRange} AED</div>
+                </div>
+            `;
+        }
 
         const card = `
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4 service-col" style="animation-delay: ${index * 0.07}s">
@@ -220,8 +366,9 @@ function displayServices(services) {
                         <h5 class="service-title">${service.name}</h5>
                         <p class="service-description">${service.description}</p>
                         <div class="service-meta">
-                            <span class="service-duration"><i class="far fa-clock"></i> ${durations} min</span>
+                            <span class="service-duration"><i class="far fa-clock"></i> 🏢 Studio: ${durations} min</span>
                         </div>
+                        ${homeServiceInfo}
                         <button class="btn-book" data-toggle="modal" data-target="#durationModal" data-service-id="${service.id}" data-service-name="${service.name}" data-durations='${JSON.stringify(service.durations)}'>
                             Book Now <i class="fas fa-arrow-right"></i>
                         </button>

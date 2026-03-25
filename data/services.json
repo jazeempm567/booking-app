@@ -20,7 +20,17 @@
         "image": "/images/services/special-oil-massage.png",
         "category": "Massage",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 500
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ]
     },
     {
         "id": 2,
@@ -43,7 +53,17 @@
         "image": "/images/services/special-full-body-lotion-massage.png",
         "category": "Massage",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 500
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ]
     },
     {
         "id": 3,
@@ -66,7 +86,17 @@
         "image": "/images/services/hot-stone-massage.png",
         "category": "Massage",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 500
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ]
     },
     {
         "id": 4,
@@ -89,7 +119,17 @@
         "image": "/images/services/hot-oil-massage.png",
         "category": "Massage",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 500
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ]
     },
     {
         "id": 5,
@@ -112,7 +152,17 @@
         "image": "/images/services/swedish-massage.png",
         "category": "Massage",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 500
+            },
+            {
+                "duration": 90,
+                "price": 600
+            }
+        ]
     },
     {
         "id": 6,
@@ -135,7 +185,17 @@
         "image": "/images/services/aroma-massage.png",
         "category": "Wellness",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 600
+            },
+            {
+                "duration": 90,
+                "price": 700
+            }
+        ]
     },
     {
         "id": 7,
@@ -158,7 +218,17 @@
         "image": "/images/services/thai-massage.png",
         "category": "Massage",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 600
+            },
+            {
+                "duration": 90,
+                "price": 700
+            }
+        ]
     },
     {
         "id": 8,
@@ -181,7 +251,17 @@
         "image": "/images/services/special-body-oil-massage.png",
         "category": "Massage",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 600
+            },
+            {
+                "duration": 90,
+                "price": 700
+            }
+        ]
     },
     {
         "id": 9,
@@ -204,7 +284,17 @@
         "image": "/images/services/deep-tissue-massage.png",
         "category": "Massage",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 500
+            },
+            {
+                "duration": 90,
+                "price": 700
+            }
+        ]
     },
     {
         "id": 10,
@@ -250,7 +340,17 @@
         "image": "/images/services/four-hand-massage.png",
         "category": "Premium",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 1000
+            },
+            {
+                "duration": 90,
+                "price": 1200
+            }
+        ]
     },
     {
         "id": 12,
@@ -273,7 +373,17 @@
         "image": "/images/services/couple-massage.png",
         "category": "Premium",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 1000
+            },
+            {
+                "duration": 90,
+                "price": 1200
+            }
+        ]
     },
     {
         "id": 13,
@@ -296,7 +406,17 @@
         "image": "/images/services/arabic-massage.png",
         "category": "Massage",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 500
+            },
+            {
+                "duration": 90,
+                "price": 650
+            }
+        ]
     },
     {
         "id": 14,

@@ -1,4 +1,110 @@
 /* ===== Staff Selection Page - Luxury Theme ===== */
+
+/* Horizontal Scrolling Gallery in Staff Card */
+.staff-gallery-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+}
+
+.gallery-label {
+    font-size: 0.85rem;
+    color: #ffd700;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.gallery-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.gallery-arrow {
+    background: #ffd700;
+    border: none;
+    color: #1a1a1a;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.gallery-arrow:hover {
+    background: #ffed4e;
+    transform: scale(1.1);
+}
+
+.gallery-arrow:disabled {
+    background: #666;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.gallery-wrapper {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 0;
+    max-height: 120px;
+}
+
+.gallery-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gallery-wrapper::-webkit-scrollbar-track {
+    background: #2d2d2d;
+    border-radius: 3px;
+}
+
+.gallery-wrapper::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 3px;
+}
+
+.gallery-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #ffed4e;
+}
+
+.gallery-scroll {
+    display: flex;
+    gap: 0.75rem;
+    scroll-behavior: smooth;
+    width: fit-content;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+
+.gallery-image {
+    flex: 0 0 auto;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 6px;
+    border: 2px solid #333;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+    border-color: #ffd700;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 body { background-color: #0c0c14; font-family: 'Poppins', Arial, sans-serif; padding-bottom: 90px; }
 
 .navbar { background: linear-gradient(135deg, #161622, #1a1a2a); padding: 14px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.4); border-bottom: 1px solid rgba(201,169,110,0.12); }
@@ -73,3 +179,32 @@ body { background-color: #0c0c14; font-family: 'Poppins', Arial, sans-serif; pad
 .btn-continue:hover i { transform: translateX(4px); }
 
 @media (max-width: 768px) { .step-line { width: 30px; } .section-title { font-size: 1.3rem; } .staff-image-wrap { height: 180px; } .staff-card-body { padding: 14px 16px 16px; } .bottom-action-bar .container { flex-direction: column; gap: 10px; text-align: center; } .btn-continue { width: 100%; } }
+
+/* Staff Gallery - Horizontal Scrollable */
+.staff-gallery-modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.95); z-index: 1050; overflow: auto; }
+.staff-gallery-modal.show { display: flex; flex-direction: column; }
+.gallery-header { background: #161622; padding: 20px; border-bottom: 1px solid rgba(201,169,110,0.2); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
+.gallery-title { color: #f0ece2; font-size: 1.3rem; font-weight: 700; }
+.gallery-nationality { color: #c9a96e; font-size: 0.9rem; font-weight: 600; margin-left: 8px; }
+.gallery-close { background: none; border: none; color: #c9a96e; font-size: 1.5rem; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+.gallery-close:hover { color: #f0ece2; background: rgba(201,169,110,0.1); border-radius: 50%; }
+
+.gallery-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.gallery-main { display: flex; flex-direction: column; width: 100%; max-width: 800px; }
+.gallery-main-image { width: 100%; height: 500px; border-radius: 12px; object-fit: cover; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(201,169,110,0.2); }
+
+.gallery-thumbnails { display: flex; gap: 12px; overflow-x: auto; padding: 10px 0; scroll-behavior: smooth; }
+.gallery-thumbnails::-webkit-scrollbar { height: 6px; }
+.gallery-thumbnails::-webkit-scrollbar-track { background: rgba(201,169,110,0.1); border-radius: 3px; }
+.gallery-thumbnails::-webkit-scrollbar-thumb { background: #c9a96e; border-radius: 3px; }
+.gallery-thumbnails::-webkit-scrollbar-thumb:hover { background: #e8d5a8; }
+
+.gallery-thumbnail { width: 100px; height: 100px; border-radius: 8px; border: 2px solid transparent; cursor: pointer; object-fit: cover; transition: all 0.3s; flex-shrink: 0; }
+.gallery-thumbnail:hover { transform: scale(1.05); border-color: #c9a96e; }
+.gallery-thumbnail.active { border-color: #c9a96e; box-shadow: 0 0 12px rgba(201,169,110,0.4); transform: scale(1.08); }
+
+@media (max-width: 768px) { 
+    .gallery-main-image { height: 300px; }
+    .gallery-thumbnail { width: 80px; height: 80px; }
+    .gallery-thumbnails { gap: 8px; }
+}
