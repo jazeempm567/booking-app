@@ -439,7 +439,17 @@
         "image": "/images/services/russian-massage.png",
         "category": "Massage",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 500
+            },
+            {
+                "duration": 90,
+                "price": 650
+            }
+        ]
     },
     {
         "id": 15,
@@ -462,6 +472,12 @@
         "image": "/images/services/foot-massage.png",
         "category": "Wellness",
         "location": "Studio",
-        "isHomeService": true
+        "isHomeService": true,
+        "homeServiceDurations": [
+            {
+                "duration": 60,
+                "price": 400
+            }
+        ]
     }
 ]
