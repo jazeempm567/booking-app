@@ -28,41 +28,81 @@ async function loadStaff() {
 function renderStaffCards() {
     staffContainer.innerHTML = '';
     staff.forEach((member, memberIndex) => {
-        const card = document.createElement('div');
-        card.className = 'col-md-6 col-lg-4 mb-4';
-        // Main image is clickable for gallery
-        card.innerHTML = `
-            <div class="staff-card staff-card-modern">
-                <div class="staff-image-collage">
-                    <img src="${member.image}" alt="${member.name}" class="staff-main-image staff-photo-click" data-member-index="${memberIndex}" style="cursor:pointer;" onerror="this.src='https://via.placeholder.com/300x300?text=${encodeURIComponent(member.name)}'">
-                </div>
-                <div class="staff-info">
-                    <h5 class="staff-name">${member.name}</h5>
-                    <p class="staff-title">${member.specialization}</p>
-                    <p class="staff-bio">${member.nationality} • ${member.experience}</p>
-                    <div class="staff-rating">
-                        <span class="rating-stars">${'★'.repeat(Math.round(member.rating))}${'☆'.repeat(5 - Math.round(member.rating))}</span>
-                        <span class="rating-count">(${member.rating})</span>
+        // Build horizontal slider for staff gallery
+        let sliderHTML = '';
+        if (member.gallery && member.gallery.length > 0) {
+            sliderHTML = `
+                <div class="staff-slider-container">
+                    <button class="slider-arrow slider-arrow-left" data-index="${memberIndex}"><i class="fas fa-chevron-left"></i></button>
+                    <div class="staff-slider" id="slider-${memberIndex}">
+                        ${member.gallery.map((img, idx) => `
+                            <div class="slider-image-wrap">
+                                <img src="${img}" alt="${member.name} photo" class="slider-image" loading="lazy" style="object-fit:contain;">
+                            </div>
+                        `).join('')}
                     </div>
-                    <button class="btn-select-staff" data-staff='${JSON.stringify(member)}'>
-                        Select
-                    </button>
+                    <button class="slider-arrow slider-arrow-right" data-index="${memberIndex}"><i class="fas fa-chevron-right"></i></button>
                 </div>
+            `;
+        } else {
+            sliderHTML = `
+                <div class="staff-slider-container">
+                    <div class="staff-slider" id="slider-${memberIndex}">
+                        <div class="slider-image-wrap">
+                            <img src="${member.image}" alt="${member.name} photo" class="slider-image" loading="lazy" style="object-fit:contain;">
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        const card = document.createElement('div');
+        card.className = 'staff-profile-vertical mb-4';
+        card.innerHTML = `
+            <div class="staff-profile-card">
+                ${sliderHTML}
+                <div class="staff-profile-details">
+                    <span class="staff-profile-name">${member.name}</span>
+                    <span class="staff-profile-nationality">${member.nationality}</span>
+                </div>
+                <button class="btn-select-staff mt-2" data-staff='${JSON.stringify(member)}'>Select</button>
             </div>
         `;
         staffContainer.appendChild(card);
     });
+    // Slider arrow logic
+    document.querySelectorAll('.slider-arrow').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const idx = this.getAttribute('data-index');
+            const slider = document.getElementById(`slider-${idx}`);
+            const scrollAmount = slider.offsetWidth * 0.7;
+            if (this.classList.contains('slider-arrow-left')) {
+                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        });
+    });
+    // Touch swipe for mobile
+    document.querySelectorAll('.staff-slider').forEach(slider => {
+        let startX = 0, scrollLeft = 0, isDown = false;
+        slider.addEventListener('touchstart', e => {
+            isDown = true;
+            startX = e.touches[0].pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('touchmove', e => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (startX - x);
+            slider.scrollLeft = scrollLeft + walk;
+        });
+        slider.addEventListener('touchend', () => { isDown = false; });
+    });
+    // Select button logic
     document.querySelectorAll('.btn-select-staff').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const member = JSON.parse(btn.dataset.staff);
             selectStaff(member);
-        });
-    });
-    // Add click event for staff main photo to open gallery modal
-    document.querySelectorAll('.staff-photo-click').forEach(img => {
-        img.addEventListener('click', function() {
-            const memberIdx = this.getAttribute('data-member-index');
-            openStaffGalleryModal(staff[memberIdx]);
         });
     });
 }
@@ -171,10 +211,31 @@ function openStaffGalleryModal(member) {
     });
 }
 
+// Add click event for slider images to open full-size modal (lightbox)
+document.querySelectorAll('.slider-image').forEach(img => {
+    img.addEventListener('click', function() {
+        const modal = document.getElementById('staffPhotoModal');
+        const modalImg = document.getElementById('staffPhotoModalImg');
+        modalImg.src = this.src;
+        // Remove and re-add animation for repeated opens
+        modalImg.style.animation = 'none';
+        void modalImg.offsetWidth; // trigger reflow
+        modalImg.style.animation = null;
+        modal.classList.add('show');
+    });
+});
+
 // Close modal logic
 const closeGalleryBtn = document.getElementById('closeGalleryModal');
 if (closeGalleryBtn) {
     closeGalleryBtn.addEventListener('click', function() {
         document.getElementById('staffGalleryModal').classList.remove('show');
     });
+}
+
+const closePhotoBtn = document.getElementById('closeStaffPhotoModal');
+if (closePhotoBtn) {
+    closePhotoBtn.onclick = function() {
+        document.getElementById('staffPhotoModal').classList.remove('show');
+    };
 }
