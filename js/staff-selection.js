@@ -105,6 +105,20 @@ function renderStaffCards() {
             selectStaff(member);
         });
     });
+
+    // Attach click event to slider images for modal (lightbox)
+    document.querySelectorAll('.slider-image').forEach(img => {
+        img.addEventListener('click', function() {
+            const modal = document.getElementById('staffPhotoModal');
+            const modalImg = document.getElementById('staffPhotoModalImg');
+            modalImg.src = this.src;
+            // Remove and re-add animation for repeated opens
+            modalImg.style.animation = 'none';
+            void modalImg.offsetWidth; // trigger reflow
+            modalImg.style.animation = null;
+            modal.classList.add('show');
+        });
+    });
 }
 
 // Select staff member
@@ -112,12 +126,17 @@ function selectStaff(member) {
     selectedStaff = member;
     selectedStaffNameSpan.textContent = member.name;
     actionBar.style.display = 'flex';
-    
+
+    // Store staff name and duration for summary
+    sessionStorage.setItem('selectedStaffName', member.name);
+    if (member.duration) {
+        sessionStorage.setItem('serviceDuration', member.duration);
+    }
+
     // Update UI to show selection
     document.querySelectorAll('.btn-select-staff').forEach(btn => {
         btn.classList.remove('active');
     });
-    
     event.target.classList.add('active');
 }
 
@@ -126,8 +145,8 @@ btnContinue.addEventListener('click', () => {
     if (selectedStaff) {
         // Store selected staff in session storage
         sessionStorage.setItem('selectedStaff', JSON.stringify(selectedStaff));
-        // Navigate to next page
-        window.location.href = './payment.html';
+        // Navigate to details (booking form) page
+        window.location.href = './booking-form.html';
     }
 });
 

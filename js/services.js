@@ -142,9 +142,10 @@ $(document).ready(function () {
         // Build duration options HTML
         let durationHTML = '<div class="duration-options">';
         durationsToShow.forEach((dur, index) => {
-            const selected = index === 0 ? 'selected' : ''; // Default to first (minimum)
+            const selected = index === 0 ? 'selected' : '';
             const isHomeService = location === 'home' && service.homeServiceDurations;
-            
+            // Only show add-on for 90-min durations
+            const showAddOn = isHomeService && parseInt(dur.duration) === 90;
             durationHTML += `
                 <div class="duration-option-wrapper ${selected}">
                     <label class="duration-option">
@@ -152,7 +153,7 @@ $(document).ready(function () {
                         <span class="duration-value">${dur.duration} min</span>
                         <span class="duration-price">${dur.price} AED</span>
                     </label>
-                    ${isHomeService ? `
+                    ${showAddOn ? `
                         <button type="button" class="btn-add-time" data-duration="${dur.duration}">
                             <i class="fas fa-plus"></i> 30 min
                         </button>

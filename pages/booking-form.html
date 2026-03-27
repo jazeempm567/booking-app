@@ -140,6 +140,17 @@
                             <div class="invalid-feedback">Please choose a time slot.</div>
                         </div>
 
+                        <!-- WhatsApp Slot Confirmation -->
+                        <div class="form-group text-center mb-4">
+                            <div class="alert alert-info p-2 mb-2" style="font-size:0.98rem;">
+                                <strong>Before selecting a date and time, please contact us via WhatsApp to confirm the available slots.</strong>
+                            </div>
+                            <a href="https://wa.me/971501234567" target="_blank" class="btn btn-success btn-block" style="font-size:1.1rem;">
+                                <i class="fab fa-whatsapp"></i> Contact Us on WhatsApp
+                            </a>
+                        </div>
+                        </div>
+
                         <!-- Notes -->
                         <div class="form-group">
                             <label for="notes"><i class="fas fa-sticky-note"></i> Special Notes <span class="text-muted">(optional)</span></label>
@@ -159,5 +170,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../js/booking.js"></script>
+    <!-- Floating WhatsApp & Call Buttons -->
+    <div class="floating-contact-buttons">
+        <a href="https://wa.me/971501234567" class="float-btn whatsapp" target="_blank" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+971501234567" class="float-btn call" title="Call Us">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
 </body>
 </html>

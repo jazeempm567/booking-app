@@ -1,3 +1,36 @@
+/* Floating Contact Buttons */
+.floating-contact-buttons {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.float-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    font-size: 2rem;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    transition: background 0.2s, transform 0.2s;
+    text-decoration: none;
+}
+.float-btn.whatsapp { background: #25d366; }
+.float-btn.call { background: #007bff; }
+.float-btn.call:hover { background: #0056b3; }
+.float-btn.whatsapp:hover { background: #128c7e; }
+.float-btn:active { transform: scale(0.95); }
+@media (max-width: 600px) {
+    .floating-contact-buttons { right: 10px; bottom: 10px; gap: 10px; }
+    .float-btn { width: 44px; height: 44px; font-size: 1.5rem; }
+}
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
