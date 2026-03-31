@@ -124,7 +124,12 @@ $(document).ready(async function () {
                     customerName: ev.payerName || userName,
                     customerEmail: ev.payerEmail || userEmail,
                     serviceName: serviceName,
-                    staffName: staffName
+                    staffName: staffName,
+                    serviceDuration: sessionStorage.getItem('serviceDuration') || '',
+                    bookingDate: bookingDate,
+                    bookingTime: bookingTime,
+                    price: price,
+                    vat: vat
                 })
             });
             const { clientSecret } = await res.json();
@@ -201,7 +206,12 @@ $(document).ready(async function () {
                     customerName: cardName,
                     customerEmail: userEmail,
                     serviceName: serviceName,
-                    staffName: staffName
+                    staffName: staffName,
+                    serviceDuration: sessionStorage.getItem('serviceDuration') || '',
+                    bookingDate: bookingDate,
+                    bookingTime: bookingTime,
+                    price: price,
+                    vat: vat
                 })
             });
 

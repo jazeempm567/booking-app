@@ -39,15 +39,31 @@ app.get('/api/config', (req, res) => {
 // ── Create a PaymentIntent ──
 app.post('/api/create-payment-intent', async (req, res) => {
     try {
-        const { amount, currency, customerName, customerEmail, serviceName, staffName } = req.body;
+        const { 
+            amount, 
+            currency, 
+            customerName, 
+            customerEmail, 
+            serviceName, 
+            staffName,
+            serviceDuration,
+            bookingDate,
+            bookingTime,
+            price,
+            vat
+        } = req.body;
 
         // Amount must be in the smallest currency unit (fils for AED)
         // 1 AED = 100 fils
         const amountInFils = Math.round(amount * 100);
 
+        // Build detailed description with all booking info + price breakdown
+        const description = `📅 ${bookingDate || 'N/A'} at ${bookingTime || 'N/A'} | ⏱️ ${serviceDuration || 'N/A'} min | 💇 ${serviceName || 'N/A'} by ${staffName || 'N/A'} | 💰 Base: ${price || 'N/A'} AED + VAT: ${vat || 'N/A'} AED = ${amount || 'N/A'} AED`;
+
         const paymentIntent = await stripe.paymentIntents.create({
             amount: amountInFils,
             currency: currency || 'aed',
+            description: description, // Full booking details with price breakdown
             automatic_payment_methods: {
                 enabled: true
             },
@@ -55,9 +71,14 @@ app.post('/api/create-payment-intent', async (req, res) => {
                 customerName: customerName || '',
                 customerEmail: customerEmail || '',
                 serviceName: serviceName || '',
-                staffName: staffName || ''
+                staffName: staffName || '',
+                serviceDuration: serviceDuration || '',
+                bookingDate: bookingDate || '',
+                bookingTime: bookingTime || '',
+                basePrice: price || '',
+                vatAmount: vat || ''
             },
-            receipt_email: customerEmail || undefined
+            receipt_email: customerEmail || undefined // Automatically sends receipt email
         });
 
         res.json({
