@@ -14,6 +14,21 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname))); // serve static files
 
+// ── SPA Route Handler - Serve index.html for root ──
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// ── Serve pages ──
+app.get('/pages/:page', (req, res) => {
+    res.sendFile(path.join(__dirname, 'pages', req.params.page));
+});
+
+// ── Fallback for direct page access ──
+app.get('/:page.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'pages', req.params.page + '.html'));
+});
+
 // ── Get publishable key (so frontend doesn't hardcode it) ──
 app.get('/api/config', (req, res) => {
     res.json({
@@ -70,11 +85,6 @@ app.get('/api/payment-status/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
-});
-
-// ── Serve the app ──
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pages', 'services.html'));
 });
 
 app.listen(PORT, () => {
