@@ -269,6 +269,9 @@ function completePayment(paymentIntentId, method) {
         year: 'numeric', month: 'long', day: 'numeric'
     }));
 
+    // Save booking to admin dashboard
+    saveBookingToServer(paymentIntentId);
+
     $('#txn-id').text(paymentIntentId);
     $('#successModal').modal('show');
 }
@@ -289,4 +292,42 @@ function formatTime(t) {
     const ampm = h >= 12 ? 'PM' : 'AM';
     h = h % 12 || 12;
     return h + ':' + m + ' ' + ampm;
+}
+
+// ── Save booking to server ──
+async function saveBookingToServer(paymentIntentId) {
+    try {
+        const bookingData = {
+            paymentIntentId: paymentIntentId,
+            customerName: sessionStorage.getItem('userName') || '',
+            customerEmail: sessionStorage.getItem('userEmail') || '',
+            serviceName: sessionStorage.getItem('serviceName') || '',
+            staffName: sessionStorage.getItem('selectedStaffName') || '',
+            serviceDuration: sessionStorage.getItem('serviceDuration') || '',
+            bookingDate: sessionStorage.getItem('bookingDate') || '',
+            bookingTime: sessionStorage.getItem('bookingTime') || '',
+            serviceLocation: sessionStorage.getItem('serviceLocation') || 'studio',
+            price: parseFloat(sessionStorage.getItem('servicePrice')) || 0,
+            vat: parseFloat(sessionStorage.getItem('vatAmount')) || 0,
+            amount: parseFloat(sessionStorage.getItem('totalAmount')) || 0,
+            status: 'confirmed'
+        };
+
+        console.log('💾 Saving booking:', bookingData);
+
+        const response = await fetch('/api/bookings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(bookingData)
+        });
+
+        if (response.ok) {
+            const savedBooking = await response.json();
+            console.log('✅ Booking saved successfully:', savedBooking);
+        } else {
+            console.error('❌ Failed to save booking');
+        }
+    } catch (error) {
+        console.error('❌ Error saving booking:', error);
+    }
 }

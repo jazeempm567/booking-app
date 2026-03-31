@@ -8,11 +8,45 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const fs = require('fs');
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname))); // serve static files
+
+// ── Bookings file path ──
+const BOOKINGS_FILE = path.join(__dirname, 'data', 'bookings.json');
+
+// Ensure bookings.json exists
+if (!fs.existsSync('data')) {
+    fs.mkdirSync('data', { recursive: true });
+}
+if (!fs.existsSync(BOOKINGS_FILE)) {
+    fs.writeFileSync(BOOKINGS_FILE, '[]', 'utf8');
+}
+
+// Helper: Read bookings
+function getBookings() {
+    try {
+        const data = fs.readFileSync(BOOKINGS_FILE, 'utf8');
+        return JSON.parse(data);
+    } catch (error) {
+        console.error('Error reading bookings:', error.message);
+        return [];
+    }
+}
+
+// Helper: Save bookings
+function saveBookings(bookings) {
+    try {
+        fs.writeFileSync(BOOKINGS_FILE, JSON.stringify(bookings, null, 2), 'utf8');
+        return true;
+    } catch (error) {
+        console.error('Error saving bookings:', error.message);
+        return false;
+    }
+}
 
 // ── SPA Route Handler - Serve index.html for root ──
 app.get('/', (req, res) => {
@@ -107,6 +141,77 @@ app.get('/api/payment-status/:id', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+// ════════════════════════════════════════
+// ── BOOKINGS API ──
+// ════════════════════════════════════════
+
+// Get all bookings
+app.get('/api/bookings', (req, res) => {
+    try {
+        const bookings = getBookings();
+        res.json(bookings);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Get single booking
+app.get('/api/bookings/:id', (req, res) => {
+    try {
+        const bookings = getBookings();
+        const booking = bookings.find(b => b.id === req.params.id);
+        if (booking) {
+            res.json(booking);
+        } else {
+            res.status(404).json({ error: 'Booking not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Save new booking
+app.post('/api/bookings', (req, res) => {
+    try {
+        const bookings = getBookings();
+        const newBooking = {
+            id: 'BK-' + Date.now(),
+            ...req.body,
+            createdAt: new Date().toISOString(),
+            status: 'confirmed'
+        };
+        
+        bookings.push(newBooking);
+        saveBookings(bookings);
+        
+        // Send email notification to admin
+        sendAdminNotification(newBooking);
+        
+        res.status(201).json(newBooking);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Delete booking
+app.delete('/api/bookings/:id', (req, res) => {
+    try {
+        let bookings = getBookings();
+        bookings = bookings.filter(b => b.id !== req.params.id);
+        saveBookings(bookings);
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// ── Send admin notification email ──
+function sendAdminNotification(booking) {
+    // Email notification setup (optional - configure if needed)
+    console.log('📧 New booking notification:', booking);
+    // You can enable email notifications by adding Nodemailer configuration
+}
 
 app.listen(PORT, () => {
     console.log(`\n🚀 Glamour Studio server running at http://localhost:${PORT}`);
