@@ -122,6 +122,7 @@ $(document).ready(async function () {
                     amount: total,
                     currency: 'aed',
                     customerName: ev.payerName || userName,
+                    customerPhone: ev.payerPhone || '',
                     customerEmail: ev.payerEmail || userEmail,
                     serviceName: serviceName,
                     staffName: staffName,
@@ -183,11 +184,20 @@ $(document).ready(async function () {
         e.preventDefault();
 
         const cardName = $('#card-name').val().trim();
+        const cardPhone = $('#card-phone').val().trim();
         if (cardName.length < 2) {
             $('#card-name').addClass('is-invalid');
             return;
         }
+        if (cardPhone.length < 5) {
+            $('#card-phone').addClass('is-invalid');
+            return;
+        }
         $('#card-name').removeClass('is-invalid').addClass('is-valid');
+        $('#card-phone').removeClass('is-invalid').addClass('is-valid');
+
+        // Store phone in sessionStorage for booking
+        sessionStorage.setItem('userPhone', cardPhone);
 
         // Show loading
         $('.btn-pay-text').addClass('d-none');
@@ -204,6 +214,7 @@ $(document).ready(async function () {
                     amount: total,
                     currency: 'aed',
                     customerName: cardName,
+                    customerPhone: cardPhone,
                     customerEmail: userEmail,
                     serviceName: serviceName,
                     staffName: staffName,
@@ -227,7 +238,8 @@ $(document).ready(async function () {
                     card: cardElement,
                     billing_details: {
                         name: cardName,
-                        email: userEmail
+                        email: userEmail,
+                        phone: cardPhone
                     }
                 }
             });
@@ -252,6 +264,11 @@ $(document).ready(async function () {
 
     // ── Clear name validation on input ──
     $('#card-name').on('input', function () {
+        $(this).removeClass('is-invalid is-valid');
+    });
+
+    // ── Clear phone validation on input ──
+    $('#card-phone').on('input', function () {
         $(this).removeClass('is-invalid is-valid');
     });
 
@@ -300,6 +317,7 @@ async function saveBookingToServer(paymentIntentId) {
         const bookingData = {
             paymentIntentId: paymentIntentId,
             customerName: sessionStorage.getItem('userName') || '',
+            customerPhone: sessionStorage.getItem('userPhone') || '',
             customerEmail: sessionStorage.getItem('userEmail') || '',
             serviceName: sessionStorage.getItem('serviceName') || '',
             staffName: sessionStorage.getItem('selectedStaffName') || '',

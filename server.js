@@ -77,6 +77,7 @@ app.post('/api/create-payment-intent', async (req, res) => {
             amount, 
             currency, 
             customerName, 
+            customerPhone,
             customerEmail, 
             serviceName, 
             staffName,
@@ -103,6 +104,7 @@ app.post('/api/create-payment-intent', async (req, res) => {
             },
             metadata: {
                 customerName: customerName || '',
+                customerPhone: customerPhone || '',
                 customerEmail: customerEmail || '',
                 serviceName: serviceName || '',
                 staffName: staffName || '',
