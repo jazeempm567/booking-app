@@ -112,4 +112,44 @@ $(document).ready(function () {
     $('#name, #email, #contact, #bookingDate, #bookingTime').on('input change', function () {
         $(this).removeClass('is-invalid is-valid');
     });
+
+    // WhatsApp Confirmation Button
+    $('#whatsappConfirmBtn').on('click', function() {
+        const staffName = sessionStorage.getItem('selectedStaffName') || 'the specialist';
+        const bookingDate = $('#bookingDate').val();
+        const bookingTime = $('#bookingTime').val();
+        
+        // Validate that date and time are filled
+        if (!bookingDate) {
+            alert('Please select a date first');
+            return;
+        }
+        if (!bookingTime) {
+            alert('Please select a time first');
+            return;
+        }
+
+        // Format date (convert YYYY-MM-DD to readable format)
+        const dateObj = new Date(bookingDate + 'T00:00:00');
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = dateObj.toLocaleDateString('en-US', options);
+
+        // Convert time to 12-hour format
+        const timeParts = bookingTime.split(':');
+        const hour = parseInt(timeParts[0]);
+        const minute = timeParts[1];
+        const period = hour >= 12 ? 'PM' : 'AM';
+        const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+        const formattedTime = `${displayHour}:${minute} ${period}`;
+
+        // Create the prefilled message
+        const message = `Hello, I am contacting from your website to check the availability of the ${staffName} on ${formattedDate} at ${formattedTime}.`;
+        
+        // Encode message for URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Open WhatsApp with prefilled message
+        const whatsappUrl = `https://wa.me/971555899629?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+    });
 });
