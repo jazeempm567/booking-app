@@ -156,7 +156,7 @@ if (btnWhatsapp) {
     btnWhatsapp.addEventListener('click', () => {
         if (selectedStaff) {
             const staffName = selectedStaff.name;
-            const whatsappNumber = selectedStaff.whatsapp || '+971501234567'; // Fallback number
+            const whatsappNumber = selectedStaff.whatsapp || '+971555899629'; // Fallback number
             const message = `Hello! I saw your website and would like to know ${staffName}'s available dates and times.`;
             const encodedMessage = encodeURIComponent(message);
             // Open WhatsApp with pre-filled message

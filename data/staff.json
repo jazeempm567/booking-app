@@ -14,7 +14,7 @@
         ],
         "available": true,
         "nextSlot": "Today, 2:00 PM",
-        "whatsapp": "+971501234567"
+        "whatsapp": "+971555899629"
     },
     {
         "id": 2,
@@ -31,7 +31,7 @@
         ],
         "available": true,
         "nextSlot": "Today, 1:00 PM",
-        "whatsapp": "+971501234567"
+        "whatsapp": "+971555899629"
     },
     {
         "id": 3,
@@ -49,7 +49,7 @@
         ],
         "available": true,
         "nextSlot": "Tomorrow, 10:00 AM",
-        "whatsapp": "+971501234567"
+        "whatsapp": "+971555899629"
     },
     {
         "id": 4,
@@ -66,7 +66,7 @@
         ],
         "available": true,
         "nextSlot": "Today, 11:00 AM",
-        "whatsapp": "+971501234567"
+        "whatsapp": "+971555899629"
     },
     {
         "id": 5,
@@ -85,7 +85,7 @@
         ],
         "available": true,
         "nextSlot": "Today, 12:30 PM",
-        "whatsapp": "+971501234567"
+        "whatsapp": "+971555899629"
     },
     {
         "id": 6,
@@ -102,7 +102,7 @@
         ],
         "available": true,
         "nextSlot": "Today, 3:00 PM",
-        "whatsapp": "+971501234567"
+        "whatsapp": "+971555899629"
     },
     {
         "id": 7,
@@ -120,6 +120,6 @@
         ],
         "available": true,
         "nextSlot": "Today, 4:00 PM",
-        "whatsapp": "+971501234567"
+        "whatsapp": "+971555899629"
     }
 ]
