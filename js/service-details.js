@@ -206,6 +206,11 @@ function goToServiceDetails(serviceId) {
     window.location.href = `service-details.html?id=${serviceId}`;
 }
 
+// Navigate back to services page
+function goBackToServices() {
+    window.location.href = 'services.html';
+}
+
 // Initialize page when DOM is ready
 $(document).ready(function() {
     loadServiceDetails();
