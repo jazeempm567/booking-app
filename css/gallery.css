@@ -1,0 +1,404 @@
+/* ═══════════════════════════════════════════════════════════════
+   STAFF GALLERY SECTION
+═══════════════════════════════════════════════════════════════ */
+.staff-gallery-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
+}
+
+.staff-gallery-section .section-header {
+    margin-bottom: 50px;
+}
+
+.section-badge {
+    display: inline-block;
+    background: #d4af37;
+    color: #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.staff-gallery-section .section-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.staff-gallery-section .section-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+#staff-gallery-container {
+    /* Bootstrap row will handle the flex layout */
+}
+
+#staff-gallery-container > * {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.staff-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.staff-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.staff-card-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: #f0f0f0;
+    position: relative;
+}
+
+.staff-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.staff-card:hover .staff-card-image img {
+    transform: scale(1.05);
+}
+
+.staff-card-image .availability-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #28a745;
+    color: white;
+}
+
+.staff-card-image .availability-badge.unavailable {
+    background: #dc3545;
+}
+
+.staff-card-image .gallery-count {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.staff-card-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.staff-card-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 8px 0;
+}
+
+.staff-card-specialty {
+    font-size: 13px;
+    color: #d4af37;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.staff-card-info {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 3px;
+}
+
+.staff-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.staff-card-rating .stars {
+    color: #ffc107;
+}
+
+.staff-card-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 8px;
+}
+
+.staff-card-footer button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-view-gallery {
+    background: #d4af37;
+    color: #1a1a1a;
+}
+
+.btn-view-gallery:hover {
+    background: #c9a227;
+}
+
+.btn-book-staff {
+    background: #007bff;
+    color: white;
+}
+
+.btn-book-staff:hover {
+    background: #0056b3;
+}
+
+/* Staff Gallery Modal */
+.staff-gallery-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#galleryCarousel {
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+#galleryCarousel .carousel-inner {
+    position: relative;
+}
+
+#galleryCarousel .carousel-item {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-gallery-image {
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+}
+
+.carousel-image-counter {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    background: rgba(212, 175, 55, 0.8);
+    width: auto;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 4px;
+    padding: 15px 20px;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background: rgba(212, 175, 55, 1);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-image: none;
+    width: auto;
+    height: auto;
+    font-size: 20px;
+}
+
+.carousel-control-prev::before {
+    content: '←';
+    color: white;
+}
+
+.carousel-control-next::before {
+    content: '→';
+    color: white;
+}
+
+.gallery-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f0f0f0;
+    aspect-ratio: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-image-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-image-wrapper .zoom-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(212, 175, 55, 0.9);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-image-wrapper:hover .zoom-icon {
+    opacity: 1;
+}
+
+/* Image Lightbox Modal */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.lightbox-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+}
+
+.lightbox-image {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    color: #d4af37;
+}
+
+.lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(212, 175, 55, 0.8);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.lightbox-prev:hover, .lightbox-next:hover {
+    background: rgba(212, 175, 55, 1);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+@media (max-width: 768px) {
+    .staff-gallery-section {
+        padding: 40px 0;
+    }
+
+    .staff-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lightbox-prev, .lightbox-next {
+        padding: 10px 15px;
+        font-size: 18px;
+    }
+}

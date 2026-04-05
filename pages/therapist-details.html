@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapist Profile - Zahi Spa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/therapist-details.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-spa brand-icon"></i> Zahi Spa
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><i class="fas fa-concierge-bell"></i> Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookings.html"><i class="fas fa-calendar-check"></i> My Bookings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="therapist-header">
+        <div class="header-overlay"></div>
+        <div class="container h-100 d-flex flex-column justify-content-center">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb-custom">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#staff-gallery-section">Our Team</a></li>
+                    <li id="breadcrumb-therapist">Therapist Name</li>
+                </ol>
+            </nav>
+            <h1 id="therapist-name" class="therapist-title">Therapist Name</h1>
+            <p id="therapist-specialization" class="therapist-specialty">Specialization</p>
+            <div class="therapist-rating-header">
+                <span id="therapist-stars" class="stars"></span>
+                <span id="therapist-rating-text" class="rating-text">5.0/5.0 (28 reviews)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="therapist-detail-main">
+        <div class="container">
+            <div class="row mt-5">
+                <!-- Photo Gallery -->
+                <div class="col-lg-7">
+                    <div class="therapist-gallery">
+                        <div class="main-photo">
+                            <img id="main-therapist-photo" src="" alt="Therapist" class="img-fluid">
+                            <div class="photo-counter" id="photo-counter">1 / 5</div>
+                        </div>
+                        <div class="gallery-thumbnails mt-3">
+                            <div id="thumbnails-container" class="thumbnails-wrapper">
+                                <!-- Thumbnails will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Therapist Info -->
+                <div class="col-lg-5">
+                    <div class="therapist-info-card">
+                        <!-- About -->
+                        <div class="info-section">
+                            <h3 class="section-title">About</h3>
+                            <div class="about-info">
+                                <p id="therapist-description" class="description-text">Therapist description</p>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <span class="label">Origin</span>
+                                        <span id="therapist-nationality" class="value">Country</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="label">Experience</span>
+                                        <span id="therapist-experience" class="value">Experience</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Specializations -->
+                        <div class="info-section">
+                            <h3 class="section-title">Specializations</h3>
+                            <div id="specializations-list" class="specializations-list">
+                                <!-- Will be populated by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Availability -->
+                        <div class="info-section">
+                            <h3 class="section-title">Availability</h3>
+                            <div class="availability-info">
+                                <p id="therapist-availability" class="availability-status">
+                                    <i class="fas fa-circle"></i> <span id="availability-text">Available</span>
+                                </p>
+                                <p id="next-slot-info" class="next-slot">
+                                    <i class="fas fa-clock"></i> Next available: <strong id="next-slot-text">Today, 2:00 PM</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Rating & Reviews -->
+                        <div class="info-section">
+                            <h3 class="section-title">Rating</h3>
+                            <div class="rating-display">
+                                <div class="rating-summary">
+                                    <span class="rating-number" id="rating-number">5.0</span>
+                                    <span class="rating-label">/5.0</span>
+                                </div>
+                                <div class="rating-stars" id="rating-stars">
+                                    <!-- Stars will be populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Book Button -->
+                        <div class="info-section">
+                            <button class="btn btn-book-therapist" onclick="bookWithTherapist()">
+                                <i class="fas fa-calendar-check"></i> Book Appointment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Offered -->
+    <section class="services-offered-section">
+        <div class="container">
+            <h2 class="section-header-title text-center mb-5">Services Offered</h2>
+            <div class="row" id="therapist-services-container">
+                <!-- Services will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="section-header-title text-center mb-5">Client Reviews</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div id="reviews-container" class="reviews-container">
+                        <!-- Reviews will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Therapists -->
+    <section class="related-therapists-section">
+        <div class="container">
+            <h2 class="section-header-title text-center mb-5">Meet Other Team Members</h2>
+            <div class="row" id="related-therapists-container">
+                <!-- Related therapists will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-col">
+                    <h5><i class="fas fa-spa"></i> Zahi Spa</h5>
+                    <p>Your premier destination for therapeutic massage and wellness in Dubai. We bring luxury treatments with expert care and relaxation.</p>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="bookings.html">My Bookings</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-phone"></i> +971 55 589 9629</p>
+                    <p><i class="fas fa-envelope"></i> alzahispadubai@gmail.com</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center footer-copy">&copy; 2026 Zahi Spa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp & Call Buttons -->
+    <div class="floating-contact-buttons">
+        <a href="https://wa.me/971555899629" class="float-btn whatsapp" target="_blank" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+971555899629" class="float-btn call" title="Call Us">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <!-- Gallery Photo Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Photo Gallery</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="gallery-carousel" class="carousel slide" data-interval="false">
+                        <div class="carousel-inner" id="carousel-inner">
+                            <!-- Photos will be loaded here -->
+                        </div>
+                        <a class="carousel-control-prev" href="#gallery-carousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#gallery-carousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/therapist-details.js"></script>
+</body>
+</html>

@@ -178,7 +178,11 @@ body { background-color: #0c0c14; font-family: 'Poppins', Arial, sans-serif; pad
 .btn-continue i { margin-left: 6px; transition: transform 0.3s; }
 .btn-continue:hover i { transform: translateX(4px); }
 
-@media (max-width: 768px) { .step-line { width: 30px; } .section-title { font-size: 1.3rem; } .staff-image-wrap { height: 180px; } .staff-card-body { padding: 14px 16px 16px; } .bottom-action-bar .container { flex-direction: column; gap: 10px; text-align: center; } .btn-continue { width: 100%; } }
+.btn-availability { background: #25d366; color: white; border: none; padding: 12px 24px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(37,211,102,0.28); display: flex; align-items: center; gap: 6px; }
+.btn-availability:hover { background: #1fbc59; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+.btn-availability i { font-size: 1.1rem; }
+
+@media (max-width: 768px) { .step-line { width: 30px; } .section-title { font-size: 1.3rem; } .staff-image-wrap { height: 180px; } .staff-card-body { padding: 14px 16px 16px; } .bottom-action-bar .container { flex-direction: column; gap: 10px; text-align: center; } .btn-continue { width: 100%; } .btn-availability { width: 100%; justify-content: center; } }
 
 /* Staff Gallery - Horizontal Scrollable */
 .staff-gallery-modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.95); z-index: 1050; overflow: auto; }

@@ -150,8 +150,58 @@ btnContinue.addEventListener('click', () => {
     }
 });
 
+// WhatsApp Availability button handler
+const btnWhatsapp = document.getElementById('btn-whatsapp');
+if (btnWhatsapp) {
+    btnWhatsapp.addEventListener('click', () => {
+        if (selectedStaff) {
+            const staffName = selectedStaff.name;
+            const whatsappNumber = selectedStaff.whatsapp || '+971501234567'; // Fallback number
+            const message = `Hello! I saw your website and would like to know ${staffName}'s available dates and times.`;
+            const encodedMessage = encodeURIComponent(message);
+            // Open WhatsApp with pre-filled message
+            window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodedMessage}`, '_blank');
+        }
+    });
+}
+
 // Load staff on page load
-document.addEventListener('DOMContentLoaded', loadStaff);
+document.addEventListener('DOMContentLoaded', () => {
+    loadStaff().then(() => {
+        // After staff cards are rendered, check if we need to auto-select a therapist
+        const params = new URLSearchParams(window.location.search);
+        const therapistId = params.get('therapistId');
+        
+        if (therapistId) {
+            // Find and auto-select the therapist
+            const therapist = staff.find(s => s.id == therapistId);
+            if (therapist) {
+                selectStaff(therapist);
+                // Highlight the card
+                setTimeout(() => {
+                    const selectButtons = document.querySelectorAll('.btn-select-staff');
+                    selectButtons.forEach((btn, idx) => {
+                        if (staff[idx].id == therapistId) {
+                            btn.classList.add('active');
+                            // Scroll into view
+                            btn.closest('.staff-profile-vertical').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    });
+                }, 100);
+            }
+        }
+    });
+});
+
+// Make loadStaff return a promise
+const loadStaffOriginal = loadStaff;
+loadStaff = function() {
+    return new Promise((resolve) => {
+        loadStaffOriginal();
+        // Staff should be loaded very quickly, resolve after render
+        setTimeout(resolve, 50);
+    });
+};
 
 $(document).ready(function () {
     // Read service info from URL params
@@ -161,6 +211,8 @@ $(document).ready(function () {
     const servicePrice = params.get('price') || '—';
     const serviceDuration = params.get('duration') || '—';
     const serviceLocation = params.get('location') || 'studio';
+    const therapistId = params.get('therapistId');
+    const therapistName = params.get('therapistName');
 
     // Format location display
     const locationDisplay = serviceLocation === 'home' ? '🏠 Your Home' : '🏢 Our Studio';
@@ -184,6 +236,12 @@ $(document).ready(function () {
     sessionStorage.setItem('servicePrice', servicePrice);
     sessionStorage.setItem('serviceDuration', serviceDuration);
     sessionStorage.setItem('serviceLocation', serviceLocation);
+
+    // Store therapist info if coming from therapist details page
+    if (therapistId) {
+        sessionStorage.setItem('selectedTherapistId', therapistId);
+        sessionStorage.setItem('selectedTherapistName', decodeURIComponent(therapistName));
+    }
 
     let selectedStaffId = null;
 

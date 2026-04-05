@@ -3,6 +3,23 @@
 let allServices = [];
 
 $(document).ready(function () {
+    // ── Check for therapist from therapist details page ──
+    const params = new URLSearchParams(window.location.search);
+    const therapistName = params.get('therapistName');
+    const therapistId = params.get('therapistId');
+    
+    if (therapistName && therapistId) {
+        sessionStorage.setItem('selectedTherapistName', therapistName);
+        sessionStorage.setItem('selectedTherapistId', therapistId);
+        // Scroll to services section
+        setTimeout(() => {
+            const servicesSection = document.getElementById('services-section');
+            if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 500);
+    }
+
     // ── Navbar scroll effect ──
     $(window).on('scroll', function () {
         if ($(this).scrollTop() > 50) {
@@ -296,7 +313,16 @@ $(document).ready(function () {
         // Close modal and navigate
         $('#durationModal').modal('hide');
         setTimeout(() => {
-            window.location.href = `staff-selection.html?serviceId=${serviceId}&serviceName=${encodeURIComponent(serviceName)}&price=${selectedPrice}&duration=${selectedDuration}&location=${selectedLocation}`;
+            // Build URL with therapist info if available
+            let staffUrl = `staff-selection.html?serviceId=${serviceId}&serviceName=${encodeURIComponent(serviceName)}&price=${selectedPrice}&duration=${selectedDuration}&location=${selectedLocation}`;
+            
+            const therapistId = sessionStorage.getItem('selectedTherapistId');
+            const therapistName = sessionStorage.getItem('selectedTherapistName');
+            if (therapistId && therapistName) {
+                staffUrl += `&therapistId=${therapistId}&therapistName=${encodeURIComponent(therapistName)}`;
+            }
+            
+            window.location.href = staffUrl;
         }, 300);
     });
 });
@@ -362,6 +388,9 @@ function displayServices(services) {
                         <span class="service-category-badge">${service.category}</span>
                         ${service.isHomeService ? '<span class="home-service-badge"><i class="fas fa-home"></i> HOME AVAILABLE</span>' : ''}
                         <div class="service-price-tag">${priceRange} AED</div>
+                        <a href="service-details.html?id=${service.id}" class="service-view-details" title="View Details">
+                            <i class="fas fa-eye"></i>
+                        </a>
                     </div>
                     <div class="service-card-body">
                         <h5 class="service-title">${service.name}</h5>
@@ -370,9 +399,14 @@ function displayServices(services) {
                             <span class="service-duration"><i class="far fa-clock"></i> 🏢 Studio: ${durations} min</span>
                         </div>
                         ${homeServiceInfo}
-                        <button class="btn-book" data-toggle="modal" data-target="#durationModal" data-service-id="${service.id}" data-service-name="${service.name}" data-durations='${JSON.stringify(service.durations)}'>
-                            Book Now <i class="fas fa-arrow-right"></i>
-                        </button>
+                        <div class="service-button-group">
+                            <button class="btn-book" data-toggle="modal" data-target="#durationModal" data-service-id="${service.id}" data-service-name="${service.name}" data-durations='${JSON.stringify(service.durations)}'>
+                                Book Now <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <a href="service-details.html?id=${service.id}" class="btn-view-details">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

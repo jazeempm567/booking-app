@@ -4,7 +4,7 @@
         "name": "Ammy",
         "nationality": "Thailand",
         "specialization": "Thai Massage & Wellness",
-        "experience": "8 years",
+        "experience": "1 year",
         "rating": 4.9,
         "image": "/images/staffs/ammy_thailand/ammy_thailand-1.jpg",
         "gallery": [
@@ -13,14 +13,15 @@
             "/images/staffs/ammy_thailand/ammy_thailand-3.jpg"
         ],
         "available": true,
-        "nextSlot": "Today, 2:00 PM"
+        "nextSlot": "Today, 2:00 PM",
+        "whatsapp": "+971501234567"
     },
     {
         "id": 2,
         "name": "Mariam",
         "nationality": "Morocco",
         "specialization": "Moroccan Spa Therapist",
-        "experience": "10 years",
+        "experience": "1 year",
         "rating": 5.0,
         "image": "/images/staffs/mariam_morocco/mariam_morocco_1.jpg",
         "gallery": [
@@ -29,14 +30,15 @@
             "/images/staffs/mariam_morocco/mariam_morocco-_3.jpg"
         ],
         "available": true,
-        "nextSlot": "Today, 1:00 PM"
+        "nextSlot": "Today, 1:00 PM",
+        "whatsapp": "+971501234567"
     },
     {
         "id": 3,
         "name": "Milla",
         "nationality": "Russia",
         "specialization": "Russian Massage Specialist",
-        "experience": "7 years",
+        "experience": "1 year",
         "rating": 4.9,
         "image": "/images/staffs/milla_russia/milla_russia_1.jpg",
         "gallery": [
@@ -45,15 +47,16 @@
             "/images/staffs/milla_russia/milla_russia_3.jpg",
             "/images/staffs/milla_russia/milla_russia_4.jpg"
         ],
-        "available": false,
-        "nextSlot": "Tomorrow, 10:00 AM"
+        "available": true,
+        "nextSlot": "Tomorrow, 10:00 AM",
+        "whatsapp": "+971501234567"
     },
     {
         "id": 4,
         "name": "Nadia",
         "nationality": "Thailand",
         "specialization": "Traditional Thai Therapy",
-        "experience": "9 years",
+        "experience": "1 year",
         "rating": 4.8,
         "image": "/images/staffs/nadia_thailand/nadia_thailand_1.jpg",
         "gallery": [
@@ -62,14 +65,15 @@
             "/images/staffs/nadia_thailand/nadia_thailand_3.jpg"
         ],
         "available": true,
-        "nextSlot": "Today, 11:00 AM"
+        "nextSlot": "Today, 11:00 AM",
+        "whatsapp": "+971501234567"
     },
     {
         "id": 5,
         "name": "Smile",
         "nationality": "Thailand",
         "specialization": "Holistic Spa Therapist",
-        "experience": "6 years",
+        "experience": "1 year",
         "rating": 4.7,
         "image": "/images/staffs/smile_thailand/smile_thailand_1.jpg",
         "gallery": [
@@ -80,14 +84,15 @@
             "/images/staffs/smile_thailand/smile_thailand_5.jpg"
         ],
         "available": true,
-        "nextSlot": "Today, 12:30 PM"
+        "nextSlot": "Today, 12:30 PM",
+        "whatsapp": "+971501234567"
     },
     {
         "id": 6,
         "name": "Yasmeen",
         "nationality": "Morocco",
         "specialization": "Premium Spa Expert",
-        "experience": "11 years",
+        "experience": "1 year",
         "rating": 4.9,
         "image": "/images/staffs/yasmeen_morocco/yasmeen_morocco_1.jpg",
         "gallery": [
@@ -96,14 +101,15 @@
             "/images/staffs/yasmeen_morocco/yasmeen_morocco_3.jpg"
         ],
         "available": true,
-        "nextSlot": "Today, 3:00 PM"
+        "nextSlot": "Today, 3:00 PM",
+        "whatsapp": "+971501234567"
     },
     {
         "id": 7,
         "name": "Yaya",
         "nationality": "Thailand",
         "specialization": "Therapeutic Massage Expert",
-        "experience": "5 years",
+        "experience": "1 year",
         "rating": 4.6,
         "image": "/images/staffs/yaya_thailand/yaya_thailand_1.jpg",
         "gallery": [
@@ -113,6 +119,7 @@
             "/images/staffs/yaya_thailand/yaya_thailand_4.jpg"
         ],
         "available": true,
-        "nextSlot": "Today, 4:00 PM"
+        "nextSlot": "Today, 4:00 PM",
+        "whatsapp": "+971501234567"
     }
 ]

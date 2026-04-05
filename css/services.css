@@ -419,6 +419,69 @@ body {
 .site-footer hr { border-color: rgba(201,169,110,0.08); margin: 30px 0 20px; }
 .footer-copy { color: rgba(255,255,255,0.3); font-size: 0.82rem; margin: 0; }
 
+/* Service Card View Details */
+.service-view-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #c9a96e, #e8d5a8);
+    color: #0c0c14;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    opacity: 0;
+    transition: all 0.35s ease;
+    z-index: 3;
+    box-shadow: 0 4px 15px rgba(201,169,110,0.3);
+}
+
+.service-card:hover .service-view-details {
+    opacity: 1;
+}
+
+.service-view-details:hover {
+    background: linear-gradient(135deg, #d4af37, #c9a96e);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.service-button-group {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.btn-view-details {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(201,169,110,0.15);
+    color: #c9a96e;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(201,169,110,0.3);
+    width: 100%;
+    text-align: center;
+}
+
+.btn-view-details:hover {
+    background: rgba(201,169,110,0.25);
+    border-color: #c9a96e;
+    color: #f0ece2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(201,169,110,0.15);
+    text-decoration: none;
+}
+
 /* RESPONSIVE */
 @media (max-width: 992px) { .carousel-caption-custom h1 { font-size: 2.4rem; } .carousel-caption-custom { padding: 0 30px 60px; } }
 @media (max-width: 768px) { .carousel-slide { height: 75vh; min-height: 450px; } .carousel-caption-custom h1 { font-size: 1.8rem; } .carousel-caption-custom p { font-size: 0.92rem; } .carousel-caption-custom { padding: 0 20px 50px; } .stat-number { font-size: 1.6rem; } .section-header h2 { font-size: 1.5rem; } .filter-bar { gap: 6px; } .filter-btn { padding: 6px 16px; font-size: 0.82rem; } .service-image-wrap { height: 180px; } .service-card-body { padding: 18px 16px 20px; } .footer-col { margin-bottom: 30px; } }
