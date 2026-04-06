@@ -479,25 +479,5 @@
                 "price": 400
             }
         ]
-    },
-    {
-        "id": 16,
-        "name": "Test Service",
-        "description": "A simple test service for payment testing and development purposes.",
-        "durations": [
-            {
-                "duration": 15,
-                "price": 10
-            },
-            {
-                "duration": 30,
-                "price": 20
-            }
-        ],
-        "image": "/images/services/test-service.png",
-        "category": "Testing",
-        "location": "Studio",
-        "isHomeService": false,
-        "homeServiceDurations": []
     }
 ]
