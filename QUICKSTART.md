@@ -63,7 +63,7 @@ git push -u origin main
 
 ## Test Your Live App
 
-1. Open: `https://your-app-production.railway.app/pages/services.html`
+1. Open: `https://your-app-production.railway.app/`
 2. Click "Book Now" on any service
 3. Fill out booking form
 4. Test payment with: `4242 4242 4242 4242` (Stripe test card)

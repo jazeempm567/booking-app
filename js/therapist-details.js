@@ -265,7 +265,7 @@ function bookWithTherapist() {
         therapistName: selectedTherapist.name,
         therapistId: selectedTherapist.id
     });
-    window.location.href = `services.html?${params.toString()}`;
+    window.location.href = `../index.html?${params.toString()}#services-section`;
 }
 
 // Initialize page when DOM is ready

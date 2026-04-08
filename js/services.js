@@ -1,6 +1,17 @@
 // Services / Home page — carousel, services, stats counter, smooth scroll
 
 let allServices = [];
+const isPagesRoute = window.location.pathname.includes('/pages/');
+const rootBasePath = isPagesRoute ? '../' : '';
+const pagesBasePath = isPagesRoute ? '' : 'pages/';
+
+function buildRootPath(path) {
+    return `${rootBasePath}${path}`;
+}
+
+function buildPagePath(page) {
+    return `${pagesBasePath}${page}`;
+}
 
 $(document).ready(function () {
     // ── Check for therapist from therapist details page ──
@@ -61,7 +72,7 @@ $(document).ready(function () {
     });
 
     // ── Fetch services ──
-    $.getJSON('../data/services.json', function (data) {
+    $.getJSON(buildRootPath('data/services.json'), function (data) {
         allServices = data;
         buildFilterButtons(data);
         displayServices(data);
@@ -314,7 +325,7 @@ $(document).ready(function () {
         $('#durationModal').modal('hide');
         setTimeout(() => {
             // Build URL with therapist info if available
-            let staffUrl = `staff-selection.html?serviceId=${serviceId}&serviceName=${encodeURIComponent(serviceName)}&price=${selectedPrice}&duration=${selectedDuration}&location=${selectedLocation}`;
+            let staffUrl = `${buildPagePath('staff-selection.html')}?serviceId=${serviceId}&serviceName=${encodeURIComponent(serviceName)}&price=${selectedPrice}&duration=${selectedDuration}&location=${selectedLocation}`;
             
             const therapistId = sessionStorage.getItem('selectedTherapistId');
             const therapistName = sessionStorage.getItem('selectedTherapistName');
@@ -388,7 +399,7 @@ function displayServices(services) {
                         <span class="service-category-badge">${service.category}</span>
                         ${service.isHomeService ? '<span class="home-service-badge"><i class="fas fa-home"></i> HOME AVAILABLE</span>' : ''}
                         <div class="service-price-tag">${priceRange} AED</div>
-                        <a href="service-details.html?id=${service.id}" class="service-view-details" title="View Details">
+                        <a href="${buildPagePath('service-details.html')}?id=${service.id}" class="service-view-details" title="View Details">
                             <i class="fas fa-eye"></i>
                         </a>
                     </div>
@@ -403,7 +414,7 @@ function displayServices(services) {
                             <button class="btn-book" data-toggle="modal" data-target="#durationModal" data-service-id="${service.id}" data-service-name="${service.name}" data-durations='${JSON.stringify(service.durations)}'>
                                 Book Now <i class="fas fa-arrow-right"></i>
                             </button>
-                            <a href="service-details.html?id=${service.id}" class="btn-view-details">
+                            <a href="${buildPagePath('service-details.html')}?id=${service.id}" class="btn-view-details">
                                 <i class="fas fa-info-circle"></i> Details
                             </a>
                         </div>

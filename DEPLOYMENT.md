@@ -132,7 +132,7 @@ Similar to Railway:
 
 ### Test Your Live App
 
-1. Open `https://yourapp-production.railway.app/pages/services.html`
+1. Open `https://yourapp-production.railway.app/`
 2. Click "Book Now" on any service
 3. Test the complete booking flow
 4. Make a test payment with Stripe test card: `4242 4242 4242 4242`

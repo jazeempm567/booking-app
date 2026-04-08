@@ -217,5 +217,5 @@ function sendAdminNotification(booking) {
 
 app.listen(PORT, () => {
     console.log(`\n🚀 Glamour Studio server running at http://localhost:${PORT}`);
-    console.log(`📄 Open: http://localhost:${PORT}/pages/services.html\n`);
+    console.log(`📄 Open: http://localhost:${PORT}/\n`);
 });
