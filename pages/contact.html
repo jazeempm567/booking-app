@@ -12,12 +12,12 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Gallery - Zahi Spa</title>
+    <title>Contact Us - Zahi Spa</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/gallery.css">
+    <link rel="stylesheet" href="../css/contact.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -36,10 +36,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html#services-section"><i class="fas fa-concierge-bell"></i> Services</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="staff-gallery.html"><i class="fas fa-users"></i> Staff Gallery</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="contact.html"><i class="fas fa-map-marker-alt"></i> Contact</a>
                     </li>
                     <li class="nav-item">
@@ -50,45 +50,87 @@
         </div>
     </nav>
 
-    <section class="staff-gallery-hero">
-        <div class="staff-gallery-hero-overlay"></div>
-        <div class="container hero-content">
-            <span class="section-badge">Meet Our Team</span>
-            <h1>All Staff Profiles</h1>
-            <p>Browse every therapist, see profile details, and open each full profile page.</p>
+    <section class="contact-hero">
+        <div class="contact-hero-overlay"></div>
+        <div class="container contact-hero-content">
+            <span class="contact-badge">Contact Zahi Spa</span>
+            <h1>Visit, Call, or Message Us</h1>
+            <p>Find our studio location, reach us directly, and open the full Google Maps business profile in one place.</p>
         </div>
     </section>
 
-    <section class="staff-gallery-section staff-gallery-page">
+    <section class="contact-main-section">
         <div class="container">
-            <div class="section-header text-center">
-                <span class="section-badge">Our Specialists</span>
-                <h2>Expert Therapists & Specialists</h2>
-                <p>All staff members with profile details, availability, ratings, and photo galleries.</p>
-            </div>
-            <div id="staff-gallery-container" class="row mt-5">
-                <!-- Staff cards will be loaded here -->
-            </div>
-        </div>
-    </section>
+            <div class="row align-items-stretch">
+                <div class="col-lg-5 mb-4">
+                    <div class="contact-panel h-100">
+                        <h2>Get in Touch</h2>
+                        <p class="contact-panel-text">We are available for studio bookings and home service appointments across Dubai.</p>
 
-    <div class="modal fade" id="staffGalleryModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staffNameTitle"></h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
+                        <div class="contact-item-card">
+                            <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h3>Address</h3>
+                                <p>Azizi Riveria 7 Shop No 3<br>Al Merkadh, Nad Al Sheba 1<br>Dubai, United Arab Emirates</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item-card">
+                            <div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p><a href="tel:+971555899629">+971 55 589 9629</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item-card">
+                            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h3>Email</h3>
+                                <p><a href="mailto:alzahispadubai@gmail.com">alzahispadubai@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item-card">
+                            <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <h3>Business Hours</h3>
+                                <p>Open 24 hours</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-actions">
+                            <a href="https://www.google.com/maps/place/ZAHI+ALKHAIR+SPA/@25.1736481,55.2996497,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f69c8c1c3fe5b:0x694c613f1c632a0c!8m2!3d25.1736481!4d55.3022246!16s%2Fg%2F11z4c_ry7g?hl=en&entry=ttu&g_ep=EgoyMDI2MDQwNi4wIKXMDSoASAFQAw%3D%3D" class="contact-btn primary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-map"></i> Open Google Maps
+                            </a>
+                            <a href="https://wa.me/971555899629" class="contact-btn secondary" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Us
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <div id="staffGalleryGrid" class="staff-gallery-grid">
-                        <!-- Images will be loaded here -->
+
+                <div class="col-lg-7 mb-4">
+                    <div class="contact-map-panel h-100">
+                        <div class="contact-map-header">
+                            <h2>Our Location</h2>
+                            <p>ZAHI ALKHAIR SPA</p>
+                        </div>
+                        <div class="contact-map-wrap">
+                            <iframe
+                                class="contact-map"
+                                src="https://maps.google.com/maps?width=100%25&height=520&hl=en&q=ZAHI%20ALKHAIR%20SPA%2C%20Azizi%20Riveria%207%20Shop%20No%203%2C%20Al%20Merkadh%2C%20Nad%20Al%20Sheba%201%2C%20Dubai%2C%20United%20Arab%20Emirates&t=&z=17&ie=UTF8&iwloc=B&output=embed"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Zahi Alkhair Spa map"></iframe>
+                            <a href="https://www.google.com/maps/place/ZAHI+ALKHAIR+SPA/@25.1736481,55.2996497,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f69c8c1c3fe5b:0x694c613f1c632a0c!8m2!3d25.1736481!4d55.3022246!16s%2Fg%2F11z4c_ry7g?hl=en&entry=ttu&g_ep=EgoyMDI2MDQwNi4wIKXMDSoASAFQAw%3D%3D" class="contact-map-overlay" target="_blank" rel="noopener noreferrer" aria-label="Open Zahi Alkhair Spa in Google Maps"></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <footer class="site-footer">
         <div class="container">
@@ -104,7 +146,6 @@
                         <li><a href="../index.html#services-section">Services</a></li>
                         <li><a href="staff-gallery.html">Staff Gallery</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="bookings.html">My Bookings</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 footer-col">
@@ -125,12 +166,6 @@
                     <a href="https://www.google.com/maps/place/ZAHI+ALKHAIR+SPA/@25.1736481,55.2996497,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f69c8c1c3fe5b:0x694c613f1c632a0c!8m2!3d25.1736481!4d55.3022246!16s%2Fg%2F11z4c_ry7g?hl=en&entry=ttu&g_ep=EgoyMDI2MDQwNi4wIKXMDSoASAFQAw%3D%3D" class="footer-map-link" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-map"></i> Open in Google Maps
                     </a>
-                    <div class="social-icons mt-3">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
                 </div>
             </div>
             <hr>
@@ -141,7 +176,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../js/gallery.js"></script>
     <div class="floating-contact-buttons">
         <a href="https://wa.me/971555899629" class="float-btn whatsapp" target="_blank" title="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i>

@@ -1,0 +1,211 @@
+.contact-hero {
+    position: relative;
+    padding: 170px 0 90px;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.88), rgba(88, 28, 135, 0.48)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=80') center/cover;
+    color: #fff;
+}
+
+.contact-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+}
+
+.contact-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.contact-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(212, 175, 55, 0.92);
+    color: #161616;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.contact-hero h1 {
+    color: #fff;
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.contact-hero p {
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+.contact-main-section {
+    padding: 70px 0;
+    background: linear-gradient(180deg, #f8f9fa 0%, #f1f5f9 100%);
+}
+
+.contact-panel,
+.contact-map-panel {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.contact-panel h2,
+.contact-map-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+.contact-panel-text,
+.contact-map-header p {
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.contact-item-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px;
+    margin-bottom: 14px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.contact-item-icon {
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #111827;
+    color: #d4af37;
+    font-size: 1.1rem;
+}
+
+.contact-item-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #0f172a;
+}
+
+.contact-item-card p,
+.contact-item-card a {
+    margin: 0;
+    color: #475569;
+    text-decoration: none;
+}
+
+.contact-item-card a:hover {
+    color: #111827;
+    text-decoration: none;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.contact-btn:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.contact-btn.primary {
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.16);
+}
+
+.contact-btn.primary:hover {
+    color: #fff;
+    background: #000;
+}
+
+.contact-btn.secondary {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.contact-btn.secondary:hover {
+    color: #065f46;
+    background: #d1fae5;
+}
+
+.contact-map-wrap {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    min-height: 520px;
+    box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.16);
+}
+
+.contact-map {
+    display: block;
+    width: 100%;
+    height: 520px;
+    border: 0;
+}
+
+.contact-map-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+@media (max-width: 991px) {
+    .contact-hero {
+        padding: 145px 0 72px;
+    }
+
+    .contact-hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-main-section {
+        padding: 48px 0;
+    }
+
+    .contact-panel,
+    .contact-map-panel {
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .contact-hero h1 {
+        font-size: 2rem;
+    }
+
+    .contact-map-wrap,
+    .contact-map {
+        min-height: 360px;
+        height: 360px;
+    }
+}
