@@ -1,10 +1,15 @@
+const galleryInPagesRoute = window.location.pathname.includes('/pages/');
+const galleryDataPath = galleryInPagesRoute ? '../data/staff.json' : 'data/staff.json';
+const therapistDetailsPath = galleryInPagesRoute ? 'therapist-details.html' : 'pages/therapist-details.html';
+
 // Load staff data and render gallery
 async function loadStaffGallery() {
     try {
-        const response = await fetch('data/staff.json');
+        const response = await fetch(galleryDataPath);
         const staff = await response.json();
 
         const container = document.getElementById('staff-gallery-container');
+        if (!container) return;
         container.innerHTML = '';
 
         staff.forEach(person => {
@@ -28,6 +33,7 @@ async function loadStaffGallery() {
                         <p class="staff-card-specialty">${person.specialization}</p>
                         <div class="staff-card-info"><strong>From:</strong> ${person.nationality}</div>
                         <div class="staff-card-info"><strong>Experience:</strong> ${person.experience}</div>
+                        <div class="staff-card-info"><strong>Next Slot:</strong> ${person.nextSlot}</div>
                         <div class="staff-card-rating">
                             <span class="stars">${stars}</span>
                             <span>${person.rating}/5.0</span>
@@ -216,7 +222,7 @@ document.addEventListener('keydown', (e) => {
 
 // Navigate to therapist details page
 function goToTherapistDetails(staffId) {
-    window.location.href = `pages/therapist-details.html?id=${staffId}`;
+    window.location.href = `${therapistDetailsPath}?id=${staffId}`;
 }
 
 // Load gallery when page is ready

@@ -6,6 +6,65 @@
     background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
 }
 
+.staff-gallery-page {
+    min-height: calc(100vh - 320px);
+}
+
+.staff-gallery-hero {
+    position: relative;
+    padding: 170px 0 90px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(75, 85, 99, 0.72)), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1600&q=80') center/cover;
+    color: #fff;
+}
+
+.staff-gallery-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.45));
+}
+
+.staff-gallery-hero .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.staff-gallery-hero h1 {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.staff-gallery-hero p {
+    color: rgba(255, 255, 255, 0.86);
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+.btn-view-all-staff {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: #111827;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 12px 30px rgba(17, 24, 39, 0.16);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-view-all-staff:hover {
+    color: #fff;
+    background: #000;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(17, 24, 39, 0.22);
+}
+
 .staff-gallery-section .section-header {
     margin-bottom: 50px;
 }
@@ -33,10 +92,6 @@
 .staff-gallery-section .section-header p {
     color: #666;
     font-size: 16px;
-}
-
-#staff-gallery-container {
-    /* Bootstrap row will handle the flex layout */
 }
 
 #staff-gallery-container > * {
@@ -389,6 +444,14 @@
 }
 
 @media (max-width: 768px) {
+    .staff-gallery-hero {
+        padding: 140px 0 72px;
+    }
+
+    .staff-gallery-hero h1 {
+        font-size: 2.25rem;
+    }
+
     .staff-gallery-section {
         padding: 40px 0;
     }
