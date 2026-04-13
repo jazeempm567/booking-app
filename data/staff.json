@@ -1,5 +1,93 @@
 ﻿[
     {
+        "id": 8,
+        "name": "Candy",
+        "nationality": "Kazakhstan",
+        "specialization": "Wellness Specialist",
+        "experience": "1 year",
+        "rating": 4.9,
+        "image": "/images/staffs/candy_kazakistan/candy_kazakistan_1.jpeg",
+        "gallery": [
+            "/images/staffs/candy_kazakistan/candy_kazakistan_1.jpeg",
+            "/images/staffs/candy_kazakistan/candy_kazakistan_2.jpeg",
+            "/images/staffs/candy_kazakistan/candy_kazakistan_3.jpeg"
+        ],
+        "available": true,
+        "nextSlot": "Today, 5:30 PM",
+        "whatsapp": "+971555899629"
+    },
+    {
+        "id": 9,
+        "name": "Jenny",
+        "nationality": "Thailand",
+        "specialization": "Professional Therapist",
+        "experience": "1 year",
+        "rating": 5.0,
+        "image": "/images/staffs/jenny_thailand/jenny_thailand_1.jpeg",
+        "gallery": [
+            "/images/staffs/jenny_thailand/jenny_thailand_1.jpeg",
+            "/images/staffs/jenny_thailand/jenny_thailand_2.jpeg",
+            "/images/staffs/jenny_thailand/jenny_thailand_3.jpeg",
+            "/images/staffs/jenny_thailand/jenny_thailand_4.jpeg"
+        ],
+        "available": true,
+        "nextSlot": "Tomorrow, 9:00 AM",
+        "whatsapp": "+971555899629"
+    },
+    {
+        "id": 10,
+        "name": "Liza",
+        "nationality": "Thailand",
+        "specialization": "Aromatherapy Expert",
+        "experience": "1 year",
+        "rating": 4.9,
+        "image": "/images/staffs/liza_thailand/liza_thailand_1.jpeg",
+        "gallery": [
+            "/images/staffs/liza_thailand/liza_thailand_1.jpeg",
+            "/images/staffs/liza_thailand/liza_thailand_2.jpeg"
+        ],
+        "available": true,
+        "nextSlot": "Tomorrow, 11:00 AM",
+        "whatsapp": "+971555899629"
+    },
+    {
+        "id": 11,
+        "name": "Lucky",
+        "nationality": "Thailand",
+        "specialization": "Massage Specialist",
+        "experience": "1 year",
+        "rating": 5.0,
+        "image": "/images/staffs/lucky_thailand/lucky_thailand_1.jpeg",
+        "gallery": [
+            "/images/staffs/lucky_thailand/lucky_thailand_1.jpeg",
+            "/images/staffs/lucky_thailand/lucky_thailand_2.jpeg",
+            "/images/staffs/lucky_thailand/lucky_thailand_3.jpeg",
+            "/images/staffs/lucky_thailand/lucky_thailand_4.jpeg"
+        ],
+        "available": true,
+        "nextSlot": "Tomorrow, 1:00 PM",
+        "whatsapp": "+971555899629"
+    },
+    {
+        "id": 12,
+        "name": "Nabi",
+        "nationality": "Thailand",
+        "specialization": "Relaxation Expert",
+        "experience": "1 year",
+        "rating": 4.9,
+        "image": "/images/staffs/nabi_thailand/nabi_thailand_1.jpeg",
+        "gallery": [
+            "/images/staffs/nabi_thailand/nabi_thailand_1.jpeg",
+            "/images/staffs/nabi_thailand/nabi_thailand_2.jpeg",
+            "/images/staffs/nabi_thailand/nabi_thailand_3.jpeg",
+            "/images/staffs/nabi_thailand/nabi_thailand_4.jpeg",
+            "/images/staffs/nabi_thailand/nabi_thailand_5.jpeg"
+        ],
+        "available": true,
+        "nextSlot": "Tomorrow, 3:00 PM",
+        "whatsapp": "+971555899629"
+    },
+    {
         "id": 1,
         "name": "Ammy",
         "nationality": "Thailand",
