@@ -105,23 +105,6 @@
         "whatsapp": "+971555899629"
     },
     {
-        "id": 2,
-        "name": "Mariam",
-        "nationality": "Morocco",
-        "specialization": "Moroccan Spa Therapist",
-        "experience": "1 year",
-        "rating": 5.0,
-        "image": "/images/staffs/mariam_morocco/mariam_morocco_1.jpg",
-        "gallery": [
-            "/images/staffs/mariam_morocco/mariam_morocco_1.jpg",
-            "/images/staffs/mariam_morocco/mariam_morocco-_2.jpg",
-            "/images/staffs/mariam_morocco/mariam_morocco-_3.jpg"
-        ],
-        "available": true,
-        "nextSlot": "Today, 1:00 PM",
-        "whatsapp": "+971555899629"
-    },
-    {
         "id": 3,
         "name": "Milla",
         "nationality": "Russia",
