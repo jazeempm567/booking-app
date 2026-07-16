@@ -68,25 +68,7 @@
         "nextSlot": "Tomorrow, 1:00 PM",
         "whatsapp": "+971555899629"
     },
-    {
-        "id": 12,
-        "name": "Nabi",
-        "nationality": "Thailand",
-        "specialization": "Relaxation Expert",
-        "experience": "1 year",
-        "rating": 4.9,
-        "image": "/images/staffs/nabi_thailand/nabi_thailand_1.jpeg",
-        "gallery": [
-            "/images/staffs/nabi_thailand/nabi_thailand_1.jpeg",
-            "/images/staffs/nabi_thailand/nabi_thailand_2.jpeg",
-            "/images/staffs/nabi_thailand/nabi_thailand_3.jpeg",
-            "/images/staffs/nabi_thailand/nabi_thailand_4.jpeg",
-            "/images/staffs/nabi_thailand/nabi_thailand_5.jpeg"
-        ],
-        "available": true,
-        "nextSlot": "Tomorrow, 3:00 PM",
-        "whatsapp": "+971555899629"
-    },
+    
     {
         "id": 1,
         "name": "Ammy",
