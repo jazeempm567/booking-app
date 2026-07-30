@@ -141,23 +141,6 @@
         "whatsapp": "+971555899629"
     },
     {
-        "id": 6,
-        "name": "Yasmeen",
-        "nationality": "Morocco",
-        "specialization": "Premium Spa Expert",
-        "experience": "1 year",
-        "rating": 4.9,
-        "image": "/images/staffs/yasmeen_morocco/yasmeen_morocco_1.jpg",
-        "gallery": [
-            "/images/staffs/yasmeen_morocco/yasmeen_morocco_1.jpg",
-            "/images/staffs/yasmeen_morocco/yasmeen_morocco_2.jpg",
-            "/images/staffs/yasmeen_morocco/yasmeen_morocco_3.jpg"
-        ],
-        "available": true,
-        "nextSlot": "Today, 3:00 PM",
-        "whatsapp": "+971555899629"
-    },
-    {
         "id": 7,
         "name": "Yaya",
         "nationality": "Thailand",
