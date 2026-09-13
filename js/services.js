@@ -414,6 +414,9 @@ function displayServices(services) {
                             <button class="btn-book" data-toggle="modal" data-target="#durationModal" data-service-id="${service.id}" data-service-name="${service.name}" data-durations='${JSON.stringify(service.durations)}'>
                                 Book Now <i class="fas fa-arrow-right"></i>
                             </button>
+                            <a href="https://wa.me/971555899629?text=${encodeURIComponent(`Hi Zahi Spa, I want to book ${service.name}`)}" class="btn-whatsapp-book" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Booking
+                            </a>
                             <a href="${buildPagePath('service-details.html')}?id=${service.id}" class="btn-view-details">
                                 <i class="fas fa-info-circle"></i> Details
                             </a>

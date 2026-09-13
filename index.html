@@ -100,63 +100,27 @@
         </div>
     </nav>
 
-    <!-- Hero Carousel -->
-    <div id="hero-carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-        <ol class="carousel-indicators">
-            <li data-target="#hero-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#hero-carousel" data-slide-to="1"></li>
-            <li data-target="#hero-carousel" data-slide-to="2"></li>
-        </ol>
+    <!-- Hero Wall -->
+    <div id="hero-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
         <div class="carousel-inner">
-            <!-- Slide 1 -->
             <div class="carousel-item active">
-                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1920&q=80');">
-                    <div class="carousel-overlay"></div>
-                    <div class="carousel-caption-custom">
-                        <span class="caption-badge">Welcome to Zahi Spa</span>
-                        <h1>Best Spa & Massage<br>Center in Dubai</h1>
-                        <p>Premium wellness services in Azizi Riviera with home massage options across Dubai</p>
-                        <a href="#services-section" class="btn-hero">
-                            Explore Services <i class="fas fa-arrow-down"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1920&q=80');">
-                    <div class="carousel-overlay"></div>
-                    <div class="carousel-caption-custom">
-                        <span class="caption-badge">Expert Therapists</span>
-                        <h1>Professional<br>Wellness Services</h1>
-                        <p>Certified therapists dedicated to your relaxation and well-being</p>
-                        <a href="#services-section" class="btn-hero">
-                            Book Now <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="carousel-item">
-                <div class="carousel-slide" style="background-image: url('images/zahi_wall_3.png');">
-                    <div class="carousel-overlay"></div>
+                <div class="carousel-slide" style="background-image: url('images/zahi_wall_1.png');">
                     <div class="carousel-caption-custom">
                         <span class="caption-badge">Home Services Available</span>
                         <h1>Wellness Comes<br>to Your Home</h1>
                         <p>Premium spa services delivered in the comfort of your home</p>
-                        <a href="#services-section" class="btn-hero">
-                            View Home Services <i class="fas fa-arrow-down"></i>
-                        </a>
+                        <div class="hero-cta-row">
+                            <a href="#services-section" class="btn-hero">
+                                View Home Services <i class="fas fa-arrow-down"></i>
+                            </a>
+                            <a href="https://wa.me/971501234567" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Booking
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#hero-carousel" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#hero-carousel" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
     </div>
 
     <!-- Quick Stats -->
@@ -379,11 +343,65 @@
         </div>
     </footer>
 
+    <div id="offerPopup" class="offer-popup" aria-live="polite">
+        <button type="button" class="offer-close" aria-label="Close offer">×</button>
+        <img src="images/popup_image_spa_massage_dubai.png" alt="Spa massage offer" class="offer-image">
+        <div class="offer-tag">Limited Time Offer</div>
+        <h3>Premium Massage Offer</h3>
+        <p>Relax your body and refresh your mind with our Luxury Aroma Massage. Only 200 AED</p>
+        <div class="offer-timer-wrap">
+            <span class="offer-timer-label">Offer ends in</span>
+            <div id="offerTimer" class="offer-timer">02:00:00</div>
+        </div>
+        <div class="offer-actions">
+            <a href="https://wa.me/971555899629?text=Hi%20Zahi%20Spa%2C%20I%20want%20to%20book%20your%20offer%20for%20home%20service." class="offer-btn whatsapp" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="tel:+971555899629" class="offer-btn call">
+                <i class="fas fa-phone-alt"></i> Call Now
+            </a>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/services.js"></script>
     <script src="js/gallery.js"></script>
+    <script>
+        (() => {
+            const popup = document.getElementById('offerPopup');
+            const timerEl = document.getElementById('offerTimer');
+            const closeBtn = document.querySelector('.offer-close');
+            if (!popup || !timerEl) return;
+
+            const endTime = Date.now() + (2 * 60 * 60 * 1000);
+
+            function formatTime(ms) {
+                const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+                const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+                const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+                const seconds = String(totalSeconds % 60).padStart(2, '0');
+                return `${hours}:${minutes}:${seconds}`;
+            }
+
+            function updateTimer() {
+                const remaining = endTime - Date.now();
+                if (remaining <= 0) {
+                    timerEl.textContent = '00:00:00';
+                    popup.classList.remove('show');
+                    return;
+                }
+                timerEl.textContent = formatTime(remaining);
+            }
+
+            setTimeout(() => popup.classList.add('show'), 500);
+            updateTimer();
+            setInterval(updateTimer, 1000);
+
+            closeBtn?.addEventListener('click', () => popup.classList.remove('show'));
+        })();
+    </script>
     <!-- Floating WhatsApp & Call Buttons -->
     <div class="floating-contact-buttons">
         <a href="https://wa.me/971555899629" class="float-btn whatsapp" target="_blank" title="Chat on WhatsApp">

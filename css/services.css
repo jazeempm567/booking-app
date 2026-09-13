@@ -21,20 +21,42 @@ body {
 .btn-outline-light { border-color: rgba(201,169,110,0.5); color: #c9a96e; }
 .btn-outline-light:hover { background: #c9a96e; color: #0c0c14; border-color: #c9a96e; }
 
-/* HERO CAROUSEL */
-.carousel-slide { height: 92vh; min-height: 550px; background-size: cover; background-position: center; background-repeat: no-repeat; position: relative; display: flex; align-items: flex-end; justify-content: flex-start; }
-.carousel-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,14,0.92) 0%, rgba(8,8,14,0.45) 40%, rgba(8,8,14,0.2) 100%); }
-.carousel-caption-custom { position: relative; z-index: 2; padding: 0 60px 80px; max-width: 700px; animation: fadeSlideUp 0.9s ease; }
+/* HERO WALL */
+#hero-carousel { overflow: hidden; }
+.carousel-slide { position: relative; height: 92vh; min-height: 550px; display: flex; align-items: flex-end; justify-content: flex-start; background-color: #0d0d12; background-size: cover; background-position: center center; background-repeat: no-repeat; filter: brightness(0.75); }
+.carousel-caption-custom { position: relative; z-index: 2; padding: 0 60px 80px; max-width: 700px; animation: fadeSlideUp 0.9s ease; opacity: 1; filter: brightness(1.25); }
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-.caption-badge { display: inline-block; background: rgba(201,169,110,0.2); color: #c9a96e; padding: 6px 20px; border-radius: 50px; font-size: 0.82rem; font-weight: 600; margin-bottom: 16px; letter-spacing: 1.5px; text-transform: uppercase; backdrop-filter: blur(6px); border: 1px solid rgba(201,169,110,0.3); }
-.carousel-caption-custom h1 { font-size: 3.2rem; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 14px; text-shadow: 0 2px 30px rgba(0,0,0,0.5); }
-.carousel-caption-custom p { font-size: 1.1rem; color: rgba(255,255,255,0.6); margin-bottom: 24px; max-width: 500px; }
-.btn-hero { display: inline-block; background: linear-gradient(135deg, #c9a96e, #e8d5a8); color: #0c0c14; padding: 14px 34px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: 0 6px 25px rgba(201,169,110,0.3); }
+.caption-badge { display: inline-block; background: rgba(12, 12, 20, 0.45); color: #f8f1e3; padding: 6px 20px; border-radius: 50px; font-size: 0.82rem; font-weight: 600; margin-bottom: 16px; letter-spacing: 1.5px; text-transform: uppercase; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.2); opacity: 1; }
+.carousel-caption-custom h1 { font-size: 3.2rem; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 14px; text-shadow: 0 2px 24px rgba(0,0,0,0.55); opacity: 1; }
+.carousel-caption-custom p { font-size: 1.1rem; color: rgba(255,255,255,0.9); margin-bottom: 24px; max-width: 500px; text-shadow: 0 2px 16px rgba(0,0,0,0.4); opacity: 1; }
+.hero-cta-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.btn-hero { display: inline-block; background: linear-gradient(135deg, #c9a96e, #e8d5a8); color: #0c0c14; padding: 14px 34px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: 0 6px 25px rgba(201,169,110,0.3); opacity: 1; }
 .btn-hero:hover { background: linear-gradient(135deg, #d4af37, #c9a96e); transform: translateY(-3px); box-shadow: 0 10px 35px rgba(201,169,110,0.45); color: #0c0c14; text-decoration: none; }
 .btn-hero i { margin-left: 8px; }
-.carousel-control-prev-icon, .carousel-control-next-icon { width: 44px; height: 44px; background-color: rgba(201,169,110,0.25); border-radius: 50%; background-size: 50%; padding: 10px; }
-.carousel-indicators li { width: 12px; height: 12px; border-radius: 50%; margin: 0 5px; background-color: rgba(255,255,255,0.25); border: none; }
-.carousel-indicators li.active { background-color: #c9a96e; transform: scale(1.2); }
+.btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #25d366, #1ebe5d); color: #fff; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: 0 6px 25px rgba(37, 211, 102, 0.35); opacity: 1; }
+.btn-whatsapp:hover { background: linear-gradient(135deg, #1ebe5d, #25d366); transform: translateY(-3px); box-shadow: 0 10px 35px rgba(37, 211, 102, 0.45); color: #fff; text-decoration: none; }
+.offer-popup { position: fixed; right: 24px; bottom: 120px; width: min(360px, calc(100vw - 24px)); background: rgba(22, 22, 34, 0.96); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 18px; box-shadow: 0 14px 40px rgba(0,0,0,0.35); padding: 16px 16px 18px; z-index: 2000; opacity: 0; visibility: hidden; transform: translateY(18px); transition: all 0.3s ease; backdrop-filter: blur(8px); }
+.offer-popup.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.offer-image { display: block; width: 100%; height: auto; border-radius: 12px; margin-bottom: 12px; object-fit: cover; }
+.offer-close { position: absolute; top: 10px; right: 12px; width: 28px; height: 28px; border: none; background: rgba(255,255,255,0.08); color: #fff; border-radius: 50%; font-size: 1.3rem; line-height: 1; cursor: pointer; }
+.offer-tag { display: inline-block; padding: 6px 12px; background: rgba(201,169,110,0.12); color: #c9a96e; border: 1px solid rgba(201,169,110,0.2); border-radius: 999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+.offer-popup h3 { margin: 0 0 8px; color: #f4efe8; font-size: 1.45rem; font-weight: 700; }
+.offer-popup p { margin: 0 0 14px; color: rgba(255,255,255,0.72); font-size: 0.95rem; line-height: 1.6; }
+.offer-timer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: rgba(201,169,110,0.08); border: 1px solid rgba(201,169,110,0.15); border-radius: 12px; padding: 10px 12px; margin-bottom: 16px; }
+.offer-timer-label { color: rgba(255,255,255,0.65); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.offer-timer { font-size: 1.25rem; font-weight: 800; color: #c9a96e; letter-spacing: 0.08em; }
+.offer-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.offer-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex: 1; min-width: 130px; padding: 12px 14px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s ease; }
+.offer-btn.whatsapp { background: linear-gradient(135deg, #25d366, #1ebe5d); color: #fff; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25); }
+.offer-btn.call { background: linear-gradient(135deg, #c9a96e, #e8d5a8); color: #0c0c14; box-shadow: 0 8px 20px rgba(201,169,110,0.2); }
+.offer-btn:hover { transform: translateY(-2px); text-decoration: none; }
+.carousel-control-prev, .carousel-control-next, .carousel-control-prev-icon, .carousel-control-next-icon, .carousel-indicators { display: none !important; }
+
+@media (max-width: 768px) {
+    .offer-popup { right: 12px; left: 12px; bottom: 96px; width: auto; }
+    .offer-actions { flex-direction: column; }
+    .offer-btn { width: 100%; }
+}
 
 /* STATS */
 .stats-section { background: #111118; padding: 50px 0; margin-top: -5px; border-top: 1px solid rgba(201,169,110,0.1); border-bottom: 1px solid rgba(201,169,110,0.1); }
@@ -453,6 +475,32 @@ body {
     display: flex;
     gap: 10px;
     flex-direction: column;
+}
+
+.btn-whatsapp-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #25d366, #1ebe5d);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.25);
+    width: 100%;
+    text-align: center;
+}
+
+.btn-whatsapp-book:hover {
+    background: linear-gradient(135deg, #1ebe5d, #25d366);
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
 }
 
 .btn-view-details {
