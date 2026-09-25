@@ -16,12 +16,18 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname))); // serve static files
 
 // ── Bookings file path ──
-const BOOKINGS_FILE = path.join(__dirname, 'data', 'bookings.json');
+const BOOKINGS_FILE =
+    process.env.BOOKINGS_FILE ||
+    path.join(__dirname, 'data', 'bookings.json');
+
+// Ensure bookings directory exists
+const bookingsDir = path.dirname(BOOKINGS_FILE);
+
+if (!fs.existsSync(bookingsDir)) {
+    fs.mkdirSync(bookingsDir, { recursive: true });
+}
 
 // Ensure bookings.json exists
-if (!fs.existsSync('data')) {
-    fs.mkdirSync('data', { recursive: true });
-}
 if (!fs.existsSync(BOOKINGS_FILE)) {
     fs.writeFileSync(BOOKINGS_FILE, '[]', 'utf8');
 }
